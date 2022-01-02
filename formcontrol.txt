@@ -1,0 +1,12 @@
+IsVip
+FromUniversity
+UserType
+Nationality
+EndDate
+StartDate
+Address
+LastName
+FirstName
+Email
+Username
+AddForm

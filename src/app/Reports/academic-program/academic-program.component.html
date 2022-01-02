@@ -1,0 +1,848 @@
+<div class="main-content">
+    <!--  عدد الطلاب المقيدين بالبرنامج / البرامج الدراسية  -->
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewStudentsNumber()" > إضافـــــــة</button>
+  
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;" >1 - عدد الطلاب المقيدين بالبرنامج / البرامج الدراسية *</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                                <table class="table  table-bordered">
+                                    <thead class=" text-success" style="font-weight: bold;">
+                                    <tr>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">م</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">اسم البرنامج</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">الدرجة العلمية</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">عدد طلاب المستوى الأول</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">عدد طلاب المستوى الثانى</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">عدد طلاب المستوى الثالث</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">عدد طلاب المستوى الرابع</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">عدد طلاب المستوى الخامس</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">عدد طلاب المستوى السادس</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">مجموع عدد طلاب </th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;">الإجراء  </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr style="text-align: center;" *ngFor="let IStudentsNumberDTO of IStudentsNumberDTO">
+                                        <th scope="row">{{IStudentsNumberDTO.autoID}}</th>
+                                        <td>{{IStudentsNumberDTO.programName}}</td>
+                                        <td>{{IStudentsNumberDTO.scientificDegreeName}}</td>
+                                        <td>{{IStudentsNumberDTO.numOfStd1}}</td>
+                                        <td>{{IStudentsNumberDTO.numOfStd2}}</td>
+                                        <td>{{IStudentsNumberDTO.numOfStd3}}</td>
+                                        <td>{{IStudentsNumberDTO.numOfStd4}}</td>
+                                        <td>{{IStudentsNumberDTO.numOfStd5}}</td>
+                                        <td>{{IStudentsNumberDTO.numOfStd6}}</td>
+                                        <td>{{IStudentsNumberDTO.sumOfStd}} </td>
+                                        <td>
+                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditStudentsNumberData(IStudentsNumberDTO)">
+                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                              </button>
+                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteStudentsNumber(IStudentsNumberDTO.studentsNumberID)" >
+                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                              </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>    
+        <!-- المعاير الاكاديمية -->
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-danger">
+                              <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewAcademicStructure()"> إضافـــــــة</button>
+          
+                                <h4 class="card-title" style="text-align: right; font-weight: bold;" >2 - مدى توافق هيكل البرنامج (لأئحة الكلية - الساعات المعتمدة - طبيعة المقررات) مع المعايير الكاديمية القومية  والإطار المرجعي للقطاع*:</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive  table-bordered">
+                                        <table class="table">
+                                            <thead class=" text-success" style="font-weight: bold;">
+                                            <tr>
+                                                <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">م</th>
+                                                <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">اسم البرنامج</th>
+                                                <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">عدد الساعات المعتمدة</th>
+                                                <th scope="col" style="font-weight: bold; text-align: center;" colspan="2" >المعاير الأكاديمية للهيئة القومية</th>
+                                                <th scope="col" style="font-weight: bold; text-align: center;" colspan="2" >الإطار  المرجعي للقطاع</th>
+                                                <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">الإجراء  </th>
+                                            </tr>
+                                            <tr style="font-weight: bold; text-align: center;">
+                                                <th>متوافق</th>
+                                                <th>غير متوافق</th>
+                                                <th>متوافق</th>
+                                                <th>غير متوافق</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr style="text-align: center;" *ngFor="let IAcademicsStructureDTO of IAcademicsStructureDTO">
+                                                <th scope="row">{{IAcademicsStructureDTO.autoID}}</th>
+                                                <td>{{IAcademicsStructureDTO.programName}}</td>
+                                                <td>{{IAcademicsStructureDTO.creditHours}}</td>
+
+                                                <td>
+                                                    <div *ngIf="IAcademicsStructureDTO.academicStandardsOfNationalAuthority === true"> 
+                                                        متوافق
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div *ngIf="IAcademicsStructureDTO.academicStandardsOfNationalAuthority === false"> 
+                                                        غير متوافق 
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div *ngIf="IAcademicsStructureDTO.academicRefferance === true"> 
+                                                        متوافق
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div *ngIf="IAcademicsStructureDTO.academicRefferance === false"> 
+                                                        غير متوافق 
+                                                    </div>
+                                                </td>
+                                               
+                                                <td>
+                                                    <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;"(click)="EditLoadAcademicsData(IAcademicsStructureDTO)">
+                                                        <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                      </button>
+                                                    <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteAcadmicsStucture(IAcademicsStructureDTO.academicsStructureID)">
+                                                        <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                      </button>
+                                                </td>
+                                               
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <!-- الإجراءات التصحيحية فى حالة عدم التوافق -->
+        <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-danger">
+                                  <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewCorrectiveAction()"> إضافـــــــة</button>
+              
+                                    <h4 class="card-title" style="text-align: right; font-weight: bold;" >الإجراءات التصحيحية فى حالة عدم التوافق: </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                            <table class="table  table-bordered">
+                                                <thead class=" text-success" style="font-weight: bold;">
+                                                <tr>
+                                                    <th scope="col" style="font-weight: bold; text-align: center;">م</th>
+                                                    <th scope="col" style="font-weight: bold; text-align: center;">اسم البرنامج</th>
+                                                    <th scope="col" style="font-weight: bold; text-align: center;">الإجراءات التصحيحية</th>
+                                                    <th scope="col" style="font-weight: bold; text-align: center;">الإجراء  </th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr style="text-align: center;" *ngFor="let ICorrectiveActionDTO of ICorrectiveActionDTO">
+                                                    <th scope="row">{{ICorrectiveActionDTO.autoID}}</th>
+                                                    <td>{{ICorrectiveActionDTO.programName}}</td>
+                                                    <td>{{ICorrectiveActionDTO.correctActions}}</td>
+                                                    <td>
+                                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditCorrectiveActionData(ICorrectiveActionDTO)">
+                                                            <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                          </button>
+                                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteCorrectiveAction(ICorrectiveActionDTO.correctiveActionID)" >
+                                                            <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                          </button>
+                                                    </td>
+                                                </tr>
+                                          
+                                                </tbody>
+                                            </table>
+                                            <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+        <hr>
+        <!-- التعاون -->
+        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewCo_op()"> إضافـــــــة</button>
+                      
+                                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 3-  التعاون الأكاديمي على المستوى الدولي* </h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class=" text-success" style="font-weight: bold;">
+                                                        <tr>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="3">م</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="3">اسم البرنامج</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="3" >الدرجات العلمية المشتركة مع الجامعات الدولية</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="3">الإجراء  </th>
+
+                                                        </tr>
+                                                        <tr style="font-weight: bold; text-align: center;">
+                                                            <th>اسم الجامعة الدولية</th>
+                                                            <th>نوع التعاون الدولي</th>
+                                                            <th>الموقف الحالي</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr style="text-align: center;" *ngFor="let ICo_opDTO of ICo_opDTO">
+                                                            <th scope="row">{{ICo_opDTO.autoID}}</th>
+                                                            <td>{{ICo_opDTO.programName}}</td>
+                                                            <td>{{ICo_opDTO.internationalUniversityName}}</td>
+                                                            <td>{{ICo_opDTO.co_opType}}</td>
+                                                            <td>{{ICo_opDTO.currentSituation}}</td>
+                                                            <td>
+                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditCo_opData(ICo_opDTO)">
+                                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                                  </button>
+                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteCo_op(ICo_opDTO)">
+                                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                                  </button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        </div>
+        <!-- مدى استيفاء الكلية -->
+        <hr>
+        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewAccreditationRequirements()"> إضافـــــــة</button>
+                      
+                                            <h4 class="card-title" style="text-align: right; font-weight: bold;" >4- مدى استيفاء الكلية متطلبات الإعتماد واستعداد الكلية (البرامج الدراسية) لأستقبال زيارة المحاكاة في مارس *2022</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class=" text-success" style="font-weight: bold;">
+                                                        <tr>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">م</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">اسم البرنامج</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >الخطة الأستراتيجية للكلية</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >تقارير متابعة الخطة التنفيذية للخطة الأستراتيجية</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >الدراسة الذاتية </th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >توصيف البرنامج ومقرراته وملحقاته </th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >تقارير البرنامج ومقررات </th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >استمارات التقييم الكمي للموارد المادية (Norms)</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="2" >التقرير السنوي</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">الإجراء  </th>
+
+                                                        </tr>
+                                                        <tr style="font-weight: bold; text-align: center;">
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>                                                            
+                                                            <th>مستوفى</th>
+                                                            <th>غير مستوفى</th>
+                                                        </tr>
+                                                       
+                                                         </thead>
+                                                         
+                                                        <tbody>
+                                                        <tr style="text-align: center;" *ngFor="let IAccreditationRequirementsDTO of IAccreditationRequirementsDTO">
+                                                            <th scope="row">{{IAccreditationRequirementsDTO.autoID}}</th>
+                                                            <td>{{IAccreditationRequirementsDTO.programName}}</td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.strategicPlanStatus === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.strategicPlanStatus === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.report === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.report === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.studyPlan === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.studyPlan === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.programsDescribe === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.programsDescribe === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.programReport === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.programReport === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.norms === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.norms === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.annualReport === true"> 
+                                                                    مستوفى
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div *ngIf="IAccreditationRequirementsDTO.annualReport === false"> 
+                                                                    غير مستوفى 
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditAccreditationRequirementsData(IAccreditationRequirementsDTO)">
+                                                                    <mat-icon aria-label="Edit" style="align-items: center;" >edit</mat-icon>
+                                                                  </button>
+                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteAccreditationRequirements(IAccreditationRequirementsDTO.accreditationRequirementsID)">
+                                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                                  </button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        </div>
+        <hr>
+        <!-- الموقف من الإعتماد الدولي -->
+        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewInternationalAccreditation()"> إضافـــــــة</button>
+                      
+                                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 5- الموقف من الإعتماد الدولي (International Accreditation)</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class=" text-success" style="font-weight: bold;">
+                                                        <tr>
+                                                            <th scope="col" style="font-weight: bold; text-align: right;" rowspan="2">الموقف من الإعتماد</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">الإجراء  </th>
+
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr style="text-align: right;" *ngFor="let InternationalAccreditationDTO of InternationalAccreditationDTO">
+                                                            <th scope="row">{{InternationalAccreditationDTO.internationalAccreditationName}}</th>
+                                                            <td style="text-align: center !important;">
+                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditInternationalAccreditationData(InternationalAccreditationDTO)">
+                                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                                  </button>
+                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteInternationalAccreditation(InternationalAccreditationDTO.internationalAccreditationID)">
+                                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                                  </button>
+                                                            </td>                                                        
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        </div>
+        <hr>
+        <!-- الموقف من الارشاد الاكاديمى -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewAdvisor()"> إضافـــــــة</button>
+      
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" >6- موقف الأرشاد الأكاديمي</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                    <table class="table  table-bordered">
+                                        <thead class=" text-success" style="font-weight: bold;">
+                                        <tr>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">البند</th>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">عدد الطلاب</th>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">النسبة</th>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">الإجراءات المتخذة من الكلية</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr style="text-align: right;" *ngFor="let IAdvisorDTO of IAdvisorDTO">
+                                            <th scope="row">{{IAdvisorDTO.advisorItemName}}</th>
+                                            <td>{{IAdvisorDTO.numberOfStd}} </td>
+                                            <td>{{IAdvisorDTO.percentage}} %</td>
+                                            <td>{{IAdvisorDTO.collegeActions}}</td>
+                                            <td style="text-align: center !important;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditAdvisorData(IAdvisorDTO)">
+                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                  </button>
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteAdvisor(IAdvisorDTO.advisorID)">
+                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                  </button>
+                                            </td>               
+                                        </tr>
+                                       
+                                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!-- تحويل الطلاب من اللوائح القديمة الى اللوائح الجديدة -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewStudentTransfer()"> إضافة الطلاب المحولين</button>
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 7- تحويل الطلاب من اللوائح القديمة الى اللوائح الجديدة </h4>
+                        </div>
+                        <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class=" text-success" style="font-weight: bold;">
+
+                                            <th scope="col" style="font-weight: bold; text-align: center;" >عدد الطلاب </th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+                                            </thead>
+                                            <tbody>
+                                            <tr style="text-align: right;" *ngFor="let IStudentTransferDTO of IStudentTransferDTO">
+                                                <th scope="row" style="text-align: center;">{{IStudentTransferDTO.studentNumber}}</th>
+                                                <td style="text-align: center !important;">
+                                                    <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditStudentTransferData(IStudentTransferDTO)">
+                                                        <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                      </button>
+                                                    <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteStudentTransfer(IStudentTransferDTO.studentTransferID)">
+                                                        <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                      </button>
+                                                </td>               
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!-- عدد المقررات غير المربوطة على عضو هيئة التدريس -->
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewNumberOfCourses()"> إضافة مقرر</button>
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;" > 8- عدد المقررات غير المربوطة على عضو هيئة التدريس </h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class=" text-success" style="font-weight: bold;">
+
+                            <th scope="col" style="font-weight: bold; text-align: center;" >عدد المقررات </th>
+                            <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+
+                            <tr> </tr>
+                            </thead>
+                            <tbody>
+                            <tr style="text-align: center;" *ngFor="let INumberOfCoursesDTO of INumberOfCoursesDTO">
+                                <th scope="row">{{INumberOfCoursesDTO.numberofCourses}}</th>
+                                <td style="text-align: center !important;">
+                                    <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditNumberOfCoursesData(INumberOfCoursesDTO)">
+                                        <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                      </button>
+                                    <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteNumberOfCourses(INumberOfCoursesDTO.numberOfCoursesID)">
+                                        <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                      </button>
+                                </td>               
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!-- مدى الألتزام بعرض المقررات الدراسية وفقا للخطة الدراسية للكلية في كل فصل دراسي -->
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewICoursesCommitment()"> إضافة</button>
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;" > 9- مدى الألتزام بعرض المقررات الدراسية وفقا للخطة الدراسية للكلية في كل فصل دراسي </h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class=" text-success" style="font-weight: bold;">
+                            <th scope="col" style="font-weight: bold; text-align: center;" >إلتزام المقررات </th>
+                            <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+                            </thead>
+                            <tbody>
+                            <tr style="text-align: right;" *ngFor="let ICoursesCommitmentDTO of ICoursesCommitmentDTO">
+                                <th scope="row">{{ICoursesCommitmentDTO.courseCommit}}</th>
+                                <td style="text-align: center !important;">
+                                    <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditCoursesCommitmentData(ICoursesCommitmentDTO)">
+                                        <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                      </button>
+                                    <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteCoursesCommitment(ICoursesCommitmentDTO.coursesCommitmentID)">
+                                        <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                      </button>
+                                </td>               
+                            </tr>
+                            </tbody>
+                        </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!-- خطة الدراسة في الفصل الدراسي الصيفي لدعم الطلاب المتعثرين والسنوات البينية -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewIStudyPlan()"> إضافـــــــة</button>
+      
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" >10-  خطة الدراسة في الفصل الدراسي الصيفي لدعم الطلاب المتعثرين والسنوات البينية </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table  table-bordered">
+                                    <thead class=" text-success" style="font-weight: bold;">
+                                    <tr>
+                                        <th scope="col" style="font-weight: bold; text-align: right;">البند</th>
+                                        <th scope="col" style="font-weight: bold; text-align: right;">الإجابة</th>
+                                        <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr style="text-align: right;" *ngFor="let IStudyPlanDTO of IStudyPlanDTO">
+                                        <th scope="row">{{IStudyPlanDTO.studyPlanItemName}}</th>   
+                                        <td>{{IStudyPlanDTO.answer | yesNo}}</td>  
+                                        <td style="text-align: center !important;">
+                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditStudyPlanData(IStudyPlanDTO)">
+                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                              </button>
+                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteStudyPlan(IStudyPlanDTO.studyPlanID)" >
+                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                              </button>
+                                        </td>               
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!--  الموقف من استخدام مصادر المعرفة الألكترونية -->
+        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header card-header-danger">
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                      
+                                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 11- الموقف من استخدام مصادر المعرفة الألكترونية</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class=" text-success" style="font-weight: bold;">
+                                                        <tr>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="3">م</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="3">اسم البرنامج</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="5" >مصادر المعرفة الألكترونية</th>
+                                                            <th scope="col" style="font-weight: bold; text-align: center;" rowspan="3">الإجراء </th>
+                                                        </tr>
+                                                        <tr style="font-weight: bold; text-align: center;" >
+                                                            <th>EBSCO</th>
+                                                            <th>Mc Graw Hill</th>
+                                                            <th>Elsevier</th>
+                                                            <th>EKB</th>
+                                                            <th>Others</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr style="text-align: center;" *ngFor="let IElectronicResourcesDTO of IElectronicResourcesDTO">
+                                                                <th scope="row">{{IElectronicResourcesDTO.autoID}}</th>
+                                                                <td>{{IElectronicResourcesDTO.programName}}</td>
+                                                                <td>
+                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === 'd6790934-3532-43a0-f188-08d9cca38097'"> 
+                                                                        نعم
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === '84b878fa-cb7e-4e60-f189-08d9cca38097'"> 
+                                                                        نعم 
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === 'aa44b8ab-ec1f-4c7c-f18a-08d9cca38097'"> 
+                                                                        نعم
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === '3b166545-b25c-4606-f18b-08d9cca38097'"> 
+                                                                        نعم 
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === '7ded6096-42f5-43a2-f18c-08d9cca38097'"> 
+                                                                        نعم 
+                                                                    </div>
+                                                                </td>
+    
+                                                                <td style="text-align: center !important;">
+                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                                  </button>
+                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
+                                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                                  </button>
+                                                            </td>    
+                                                            
+                                                        </tr>
+                                                        
+                                                       
+                                                        </tbody>
+                                                    </table>
+                                                    <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        </div>
+        <hr>
+        <!-- موقف رفع المقررات الدراسية على منصات التعليم الإلكتروني الخاص بالجامعة (Moodle) -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewIMoodleDTO()"> إضافـــــــة</button>
+      
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" >12- موقف رفع المقررات الدراسية على منصات التعليم الإلكتروني الخاص بالجامعة (Moodle)</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                    <table class="table  table-bordered">
+                                        <thead class=" text-success" style="font-weight: bold;">
+                                        <tr>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">م</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">اسم البرنامج</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">عدد المقررات</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">عدد المقررات المرفوعه</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">النسبة</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">الإجراء ات المتخذة بواسطة الكلية</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">الإجراء </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr style="text-align: center;" *ngFor="let IMoodleDTO of IMoodleDTO">
+                                            <th scope="row" style="text-align: center;">{{IMoodleDTO.autoID}}</th>
+                                            <td>{{IMoodleDTO.programName}}</td>
+                                            <td>{{IMoodleDTO.numberOfCourses}}</td>
+                                            <td>{{IMoodleDTO.numberOfActiveCourses}}</td>
+                                            <td>{{IMoodleDTO.percentage}} %</td>
+                                            <td>{{IMoodleDTO.collegeDecisions}}</td>
+                                            <td style="text-align: center !important;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditIMoodleDTO(IMoodleDTO)">
+                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                  </button>
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteIMoodleDTO(IMoodleDTO.moodleID)">
+                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                  </button>
+                                            </td>    
+                                        </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                    <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!-- أساليب التعليم والتعلم والتقييم -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewTeaching()" > إضافـــة اسلوب</button>
+      
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" >13- أساليب التعليم والتعلم والتقييم </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                    <table class="table  table-bordered">
+                                        <thead class=" text-success" style="font-weight: bold;">
+                                        <tr>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">أساليب التعليم والتعلم</th>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">ينطبق</th>
+                                            <th scope="col" style="font-weight: bold; text-align: right;">لاينطبق</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">الإجراء </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr style="text-align: right;" *ngFor="let ITeachingAndLearningMethodsDTO of ITeachingAndLearningMethodsDTO">
+                                            <th scope="row">{{ITeachingAndLearningMethodsDTO.teachingAndLearningMethodsItemName}}</th>
+                                            <td>
+                                                <div *ngIf="ITeachingAndLearningMethodsDTO.applicable === true"> 
+                                                    ينطبق
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div *ngIf="ITeachingAndLearningMethodsDTO.applicable === false"> 
+                                                    لا ينطبق 
+                                                </div>
+                                            </td>
+
+                                            <td style="text-align: center !important;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditTeaching(ITeachingAndLearningMethodsDTO)">
+                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                  </button>
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteTeaching(ITeachingAndLearningMethodsDTO.teachingAndLearningMethodsID)">
+                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                  </button>
+                                            </td>    
+                                       </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+        <!-- التدريب الميدانى -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewFieldT()"> إضافة تدريب</button>
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 14- التدريب الميدانى </h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead class=" text-success" style="font-weight: bold;">
+
+                                <th scope="col" style="font-weight: bold; text-align: center;" >التدريب الميدانى </th>
+                                <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+
+                                <tr> </tr>
+                                </thead>
+                                <tbody>
+                                <tr style="text-align: right;" *ngFor="let IFieldTrainingDTO of IFieldTrainingDTO">
+                                    <th scope="row">{{IFieldTrainingDTO.trainingName}}</th>
+                                    <td style="text-align: center !important;">
+                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditFieldT(IFieldTrainingDTO)">
+                                            <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                          </button>
+                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteFieldT(IFieldTrainingDTO.fieldTrainingID)">
+                                            <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                          </button>
+                                    </td>               
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</div>

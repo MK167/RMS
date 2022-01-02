@@ -1,0 +1,183 @@
+<button mat-icon-button matTooltip="Click to close" class="iconbutton" color="warn">
+    <mat-icon mat-icon-button matTooltip="Click to close" class="iconbutton" id="close-icon" (click)="closeDialog()">close</mat-icon>
+</button>
+<div class="main-content">
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title" style="text-align: right;">إضافة / تعديل مدى استيفاء الكلية</h4>
+                        <p class="card-category" style="text-align: right;">قم بإدخال البيانات كاملة</p>
+                    </div>
+                    <div class="card-body">
+                        <br>
+
+                        <form [formGroup]="AddAccreditationRequirementsForm" id="AddAccreditationRequirementsForm">
+                            <div class="row">
+                               
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">أختر اسم الكلية</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="College" formControlName="College" required placeholder="أختر اسم الكلية">
+                                            <mat-option *ngFor="let Col of College" [value]="Col.collegeID">
+                                                {{ Col.collegeName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['College'].hasError('required')">
+                                            يلزم اختيار <strong> اسم الكلية</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">أختر اسم البرنامج</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="Program" formControlName="Program" required placeholder="أختر اسم البرنامج">
+                                            <mat-option *ngFor="let Pro of Program" [value]="Pro.programID">
+                                                {{ Pro.programName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['Program'].hasError('required')">
+                                            يلزم اختيار <strong> اسم البرنامج</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">الخطة الأستراتيجية للكلية</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="strategicPlanStatus" formControlName="strategicPlanStatus" required placeholder="الخطة الأستراتيجية للكلية">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['strategicPlanStatus'].hasError('required')">
+                                            يلزم اختيار <strong> الخطة الأستراتيجية للكلية</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">تقارير متابعة الخطة التنفيذية للخطة الأستراتيجية	</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="report" formControlName="report" required placeholder="تقارير متابعة الخطة التنفيذية للخطة الأستراتيجية">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['report'].hasError('required')">
+                                            يلزم اختيار <strong> تقارير متابعة الخطة التنفيذية للخطة الأستراتيجية</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">الدراسة الذاتية</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="studyPlan" formControlName="studyPlan" required placeholder="الدراسة الذاتية">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['studyPlan'].hasError('required')">
+                                            يلزم اختيار <strong> الدراسة الذاتية</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">توصيف البرنامج ومقرراته وملحقاته</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="programsDescribe" formControlName="programsDescribe" required placeholder="توصيف البرنامج ومقرراته وملحقاته">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['programsDescribe'].hasError('required')">
+                                            يلزم اختيار <strong> توصيف البرنامج ومقرراته وملحقاته</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">تقارير البرنامج ومقررات</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="programReport" formControlName="programReport" required placeholder="تقارير البرنامج ومقررات">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['programReport'].hasError('required')">
+                                            يلزم اختيار <strong> تقارير البرنامج ومقررات</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">استمارات التقييم الكمي للموارد المادية (Norms)</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="norms" formControlName="norms" required placeholder="استمارات التقييم الكمي للموارد المادية (Norms)">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['norms'].hasError('required')">
+                                            يلزم اختيار <strong> استمارات التقييم الكمي للموارد المادية (Norms)</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label class="mat-label-right">التقرير السنوي</mat-label>
+                                        <mat-select [errorStateMatcher]="matcher" id="annualReport" formControlName="annualReport" required placeholder="التقرير السنوي	">
+                                            <mat-option [value]= true>
+                                               مستوفى
+                                            </mat-option>
+                                            <mat-option [value]= false>
+                                               غير مستوفى
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddAccreditationRequirementsForm.controls['annualReport'].hasError('required')">
+                                            يلزم اختيار <strong> التقرير السنوي	</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+  
+                             </div>
+  <br>
+
+                             <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="background:linear-gradient(60deg, #002361, #0A9442)!important; "
+                             (click)="saveData()" type="submit" [disabled]="!AddAccreditationRequirementsForm.valid" >حفـــــظ البيانات</button>
+                             <button mat-raised-button class="warn" (click)="Cancel()">إلغاء</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- <p style="  text-align: center;"> Developed by <svg class="heart" viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+          c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+      </svg>  Programming Development Team </p> -->
+  </div>
+  

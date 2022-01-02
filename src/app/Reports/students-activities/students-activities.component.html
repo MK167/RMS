@@ -1,0 +1,113 @@
+<div class="main-content">
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewStdActivityTypeData()"> إضافة</button>
+                    <h4 class="card-title" style="text-align: right; font-weight: bold;" > 1- النشاط الرياضى </h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead class=" text-success" style="font-weight: bold;">
+                        <tr>
+                            <th scope="col" style="font-weight: bold; text-align: right;" >النشاط الرياضى</th>
+                            <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="text-align: right;" *ngFor="let IStudentActivitiesDTO of IStudentActivitiesDTO">
+                            <th scope="row">{{IStudentActivitiesDTO.studentCount}}</th>
+                            <td style="text-align: center !important;">
+                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditStdActivityTypeData(IStudentActivitiesDTO)">
+                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                  </button>
+                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteStdActivityTypeData(IStudentActivitiesDTO.studentActivitiesID)">
+                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                  </button>
+                            </td>                                                        
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewStdActivityType2Data()"> إضافة</button>
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;" > 2- النشاط الفنى </h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class=" text-success" style="font-weight: bold;">
+                            <tr>
+                                <th scope="col" style="font-weight: bold; text-align: right;" >النشاط الفنى</th>
+                                <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+    
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="text-align: right;" *ngFor="let IStudentActivities2DTO of IStudentActivities2DTO">
+                                    <th scope="row">{{IStudentActivities2DTO.studentCount}}</th>
+                                <td style="text-align: center !important;">
+                                    <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditStdActivityType2Data(IStudentActivities2DTO)">
+                                        <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                      </button>
+                                    <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteStdActivityType2Data(IStudentActivities2DTO.studentActivitiesID)">
+                                        <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                      </button>
+                                </td>                                                        
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ </div>
+ <hr>
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewStdActivityType3Data()"> إضافة</button>
+                    <h4 class="card-title" style="text-align: right; font-weight: bold;" > 3- النشاط الثقافى </h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead class=" text-success" style="font-weight: bold;">
+                        <tr>
+                            <th scope="col" style="font-weight: bold; text-align: right;" >النشاط الثقافى</th>
+                            <th scope="col" style="font-weight: bold; text-align: center;" >الإجراء  </th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="text-align: right;" *ngFor="let IStudentActivities3DTO of IStudentActivities3DTO">
+                                <th scope="row">{{IStudentActivities3DTO.studentCount}}</th>
+                            <td style="text-align: center !important;">
+                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditStdActivityType3Data(IStudentActivities3DTO)">
+                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                  </button>
+                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteStdActivityType3Data(IStudentActivities3DTO.studentActivitiesID)">
+                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                  </button>
+                            </td>                                                        
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+    

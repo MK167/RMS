@@ -1,0 +1,194 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                      <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewUniversity()"> تعديل كليــة</button> -->
+  
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;" >الكليات</h4>
+                        <p class="card-category" style="text-align: right; color: white; font-weight: bold;">بيانات الكلية الأساسية  </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-bordered" mat-table  [dataSource]="ICollege">
+                            <!-- Position Column -->
+                            <thead class=" text-success"> 
+                            <ng-container matColumnDef="CollegeName">
+                              <th class=" text-success" style="font-weight: bold; text-align: center;" mat-header-cell *matHeaderCellDef> أسم الكلية </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.collegeName}} </td>
+                            </ng-container>
+                          
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="CDate">
+                              <th class=" text-success" style="font-weight: bold; text-align: center;" mat-header-cell *matHeaderCellDef> تاريخ التأسيس </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;" > {{element.startDate| date:'mediumDate'}} </td>
+                            </ng-container>
+                          
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="RepublicanDecision">
+                              <th mat-header-cell *matHeaderCellDef class=" text-success" style="font-weight: bold; text-align: center;"> القرار الجمهورى </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.republicanDecision}} </td>
+                            </ng-container>
+                          
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CNumberOfMajors">
+                              <th mat-header-cell *matHeaderCellDef class=" text-success" style="font-weight: bold; text-align: center;"> عدد الأقسام العلمية </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.numberOfScientificMajor}} </td>
+                            </ng-container>
+                          
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CNumberOfPrograms">
+                              <th mat-header-cell *matHeaderCellDef class=" text-success" style="font-weight: bold; text-align: center;"> عدد البرامج الدراسية </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.numberOfCourses}} </td>
+                            </ng-container>
+                          
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CAcademicDate">
+                              <th mat-header-cell *matHeaderCellDef class=" text-success" style="font-weight: bold; text-align: center;"> تاريخ بدء الدراسة </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.studyStartDate | date:'fullDate'}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CTimeAcademic">
+                              <th mat-header-cell *matHeaderCellDef class=" text-success" style="font-weight: bold; text-align: center;"> مدة الدراسة </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.studyDuration}} </td>
+                            </ng-container>
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="CStudyLang" >
+                              <th mat-header-cell *matHeaderCellDef class=" text-success" style="font-weight: bold; text-align: center;"> لغة الدراسة </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.studyLanguages}} </td>
+                            </ng-container>
+                          
+                            <ng-container matColumnDef="Cactions" style="text-align: center;">
+                              <th class=" text-success" style="font-weight: bold; text-align: center ;" mat-header-cell *matHeaderCellDef > الإجراء  </th>
+                              <mat-cell *matCellDef="let element" style="text-align: center !important;">
+                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary" (click)=" EditCollegeData(element)" style="text-align: center !important;">
+                                    <mat-icon aria-label="Edit" style="text-align: center !important;">edit</mat-icon>
+                                  </button>
+                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn" (click)="onDeleteCollege(element.collegeID)" style="text-align: center !important;" >
+                                    <mat-icon aria-label="Delete" style="text-align: center !important;">delete</mat-icon>
+                                  </button>
+                              </mat-cell>
+                            </ng-container>
+                           
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+                            </thead>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewMajor()" > إضافـــة قسم</button>
+  
+                        <h4 class= "card-title" style="text-align: right; font-weight: bold;" >الأقسام العلمية بالكلية </h4>
+                        <p class="card-category" style="text-align: right; color: white; font-weight: bold;">بيانات الأقسام  </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-bordered" mat-table  [dataSource]="ICMajors">
+                            <!-- Position Column -->
+                            <thead class=" text-success"> 
+                            <ng-container matColumnDef="MajorID">
+                              <th class="text-success" style="font-weight: bold;" mat-header-cell *matHeaderCellDef> م </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: right;"> {{element.autoID}}  </td>
+                            </ng-container>
+                          
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="MajorName">
+                              <th class=" text-success" style="font-weight: bold;" mat-header-cell *matHeaderCellDef> أسم القسم </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: right;" > {{element.majorName}} </td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="CollegeOfMajor">
+                              <th class=" text-success" style="font-weight: bold;" mat-header-cell *matHeaderCellDef> أسم الكلية </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: right;" > {{element.collegeName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Mactions" style="text-align: center;">
+                              <th class=" text-success" style="font-weight: bold; text-align: center ;" mat-header-cell *matHeaderCellDef > الإجراء  </th>
+                              <mat-cell *matCellDef="let element" style="text-align: center !important;">
+                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary" (click)="EditMajorData(element)" style="text-align: center !important;">
+                                    <mat-icon aria-label="Edit" style="text-align: center !important;">edit</mat-icon>
+                                  </button>
+                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn" (click)="onDeleteMajor(element.majorID)" style="text-align: center !important;" >
+                                    <mat-icon aria-label="Delete" style="text-align: center !important;">delete</mat-icon>
+                                  </button>
+                              </mat-cell>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnss"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnss;"></tr>
+                            </thead>
+                          </table>
+                          <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد الأقسام بالكلية</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewProgram()" > إضافـــة برنامج</button>
+  
+                        <h4 class= "card-title" style="text-align: right; font-weight: bold;" >البرامج الخاصة بالكلية </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-bordered" mat-table  [dataSource]="ICPrograms">
+                            <!-- Position Column -->
+                            <thead class=" text-success"> 
+                            <ng-container matColumnDef="ProgramID">
+                              <th class="text-success" style="font-weight: bold;" mat-header-cell *matHeaderCellDef> م </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: right;"> {{element.autoID}} </td>
+                            </ng-container>
+                          
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="ProgramName">
+                              <th class=" text-success" style="font-weight: bold;" mat-header-cell *matHeaderCellDef> أسم البرنامج </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: right;" > {{element.programName}} </td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="CollegeName">
+                              <th class=" text-success" style="font-weight: bold;" mat-header-cell *matHeaderCellDef> أسم الكلية </th>
+                              <td mat-cell *matCellDef="let element" style="text-align: right;" > {{element.collegeName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Pactions" style="text-align: center;">
+                              <th class=" text-success" style="font-weight: bold; text-align: center ;" mat-header-cell *matHeaderCellDef > الإجراء  </th>
+                              <mat-cell *matCellDef="let element" style="text-align: center !important;">
+                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary" (click)="EditProgramData(element)" style="text-align: center !important;">
+                                    <mat-icon aria-label="Edit" style="text-align: center !important;">edit</mat-icon>
+                                  </button>
+                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn" (click)="onDeleteProgram(element.programID)" style="text-align: center !important;" >
+                                    <mat-icon aria-label="Delete" style="text-align: center !important;">delete</mat-icon>
+                                  </button>
+                              </mat-cell>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumnsss"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumnsss;"></tr>
+                            </thead>
+                          </table>
+                          <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

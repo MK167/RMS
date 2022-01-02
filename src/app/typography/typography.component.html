@@ -1,0 +1,213 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Add New Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="AddForm" (ngSubmit)="CheckData()" id="AddForm">
+                          <div class="row">
+                              <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Event at MUST University" disabled>
+                                  </mat-form-field>
+                              </div>
+                              
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Position Title" id="Title" formControlName="Title" required   maxlength="150" [errorStateMatcher]="matcher">
+                                  <mat-error *ngIf="this.AddForm.controls['Title'].hasError('required')">
+                                    Position Title is <strong>required</strong>
+                                  </mat-error>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Full Name" id="Username" formControlName="Username" required   maxlength="150" [errorStateMatcher]="matcher">
+                                  <mat-error *ngIf="this.AddForm.controls['Username'].hasError('required')">
+                                    FULL Name is <strong>required</strong>
+                                  </mat-error>
+                                </mat-form-field>
+                              </div>
+                              
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="First Name" type="text" id="FirstName" formControlName="FirstName" required [errorStateMatcher]="matcher">
+                                <mat-error *ngIf="this.AddForm.controls['FirstName'].hasError('required')">
+                                  First Name is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Last Name" type="text"  id="LastName" formControlName="LastName" required [errorStateMatcher]="matcher">
+                                <mat-error *ngIf="this.AddForm.controls['LastName'].hasError('required')">
+                                  Last Name is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+                        </div>
+
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Address" type="text"  id="Address" formControlName="Address" required [errorStateMatcher]="matcher">
+                                  <mat-error *ngIf="this.AddForm.controls['Address'].hasError('required')">
+                                    Address  is <strong>required</strong>
+                                  </mat-error>
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Email address" type="email" id="Email" formControlName="Email" required [errorStateMatcher]="matcher">
+                                  <!-- <mat-error *ngIf="this.AddForm.controls['Email'].hasError('required') && this.AddForm.controls['Email'].hasError('email')">
+                                    Email is <strong>required</strong>
+                                  </mat-error> -->
+                                  <mat-error *ngIf="this.AddForm.controls['Email'].hasError('required')">
+                                    Email is <strong>required</strong>
+                                  </mat-error>
+                                  <mat-error *ngIf="this.AddForm.controls['Email'].hasError('email')">
+                                    Email is <strong>required</strong>
+                                  </mat-error>
+                                </mat-form-field>
+                              </div>
+
+                          </div>
+
+                          
+                          <div class="row">
+                            <div class="col-md-3">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Nationality</mat-label>
+                                <mat-select [errorStateMatcher]="matcher" id="Nationality" formControlName="Nationality" required placeholder="Choose Nationality">
+                                  <mat-option *ngFor="let nation of nations" [value]="nation.value">
+                                    {{nation.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="this.AddForm.controls['Nationality'].hasError('required')">
+                                  Nationality  is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                              <mat-form-field appearance="fill">
+                                <mat-label>User Type</mat-label>
+                                <mat-select [errorStateMatcher]="matcher" id="UserType" formControlName="UserType" required placeholder="Choose UserType">
+                                  <mat-option *ngFor="let user of Users" [value]="user.value">
+                                    {{user.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="this.AddForm.controls['UserType'].hasError('required')">
+                                  UserType  is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                              <mat-form-field appearance="fill">
+                                <mat-label>Gender</mat-label>
+                                <mat-select [errorStateMatcher]="matcher" id="Gender" formControlName="Gender" required placeholder="Choose Gender">
+                                  <mat-option *ngFor="let gender of Gender" [value]="gender.value">
+                                    {{gender.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="this.AddForm.controls['Gender'].hasError('required')">
+                                  Gender  is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                            </div>
+
+                            <div class="col-md-3">
+                              <mat-form-field appearance="fill">
+                                <mat-label>University</mat-label>
+                                <mat-select [errorStateMatcher]="matcher" id="University" formControlName="University" required placeholder="Choose University">
+                                  <mat-option *ngFor="let uni of University" [value]="uni.value">
+                                    {{uni.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="this.AddForm.controls['University'].hasError('required')">
+                                  University  is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                              </div>
+      
+                            <div class="col-md-4" style="margin-top: 20px;">
+                              <mat-radio-group aria-label="Select an option" class="example-radio-group" formControlName="IsVip" required #IsVip>
+                                <mat-error *ngIf="this.AddForm.controls['IsVip'].hasError('required')">
+                                    Choose is <strong>required</strong>
+                                </mat-error>
+                                <mat-radio-button  class="example-radio-button" value="1">Is VIP</mat-radio-button>
+                                <mat-radio-button  class="example-radio-button" value="2">Is not</mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
+                          <div class="col-md-5">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Choose an Event</mat-label>
+                              <mat-select [errorStateMatcher]="matcher" id="Gender" formControlName="Gender" required placeholder="Choose Event">
+                                <mat-option *ngFor="let gender of Gender" [value]="gender.value">
+                                  {{gender.viewValue}}
+                                </mat-option>
+                              </mat-select>
+                              <mat-error *ngIf="this.AddForm.controls['Gender'].hasError('required')">
+                                Choose an Event  is <strong>required</strong>
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+            
+                  <div class="col-md-4">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Enter an Event date range *</mat-label>
+                      <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date" id="startdate" formControlName="StartDate" required [errorStateMatcher]="matcher">
+                        <input matEndDate placeholder="End date" id="enddate" formControlName="EndDate" required [errorStateMatcher]="matcher">
+                        </mat-date-range-input>
+                      <mat-error *ngIf="this.AddForm.controls['StartDate'].hasError('required')">
+                      Start Date is <strong>required</strong>
+                      </mat-error>
+                      <mat-error *ngIf="this.AddForm.controls['EndDate'].hasError('required')">
+                      End Date is <strong>required</strong>
+                      </mat-error>
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-md-3">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Organizer</mat-label>
+
+                      <mat-select [errorStateMatcher]="matcher" id="Organizer" formControlName="Organizer" required placeholder="Choose Organizer">
+                        <mat-option *ngFor="let nation of nations" [value]="nation.value">
+                          {{nation.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="this.AddForm.controls['Organizer'].hasError('required')">
+                        Organizer  is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+              </div>
+
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="background:linear-gradient(60deg, #002361, #0A9442)!important; ">Add New User</button>
+                                <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

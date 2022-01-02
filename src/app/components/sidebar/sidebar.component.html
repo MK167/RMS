@@ -1,0 +1,38 @@
+<div class="logo">
+    <a [routerLink]="['/dashboard']" class="simple-text">
+        <div class="logo-img">
+            <img src="assets/img/must-logo.svg"/>
+        </div>
+        <p style="text-align: center;
+        color: black;
+        margin-right: 80px;" > التقارير السنوية للجامعة   
+        </p>
+   
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <ul class="nav" style="padding-right: 0 !important;">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item" style="padding-right: 0 !important;">
+            <a class="nav-link" [routerLink]="[menuItem.path]" style="padding-right: 0 !important;">
+                <i class="material-icons">{{menuItem.icon}}</i>
+                <p style="padding-right: 0 !important;text-align: right !important; 
+                margin-right: 50px !important;">{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+    <div *ngIf="isMobileMenu()">
+    <ul class="nav navbar-nav nav-mobile-menu">
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">person</i>
+                <p>
+                    <span class="d-lg-none d-md-block">تسجيل الخروج</span>
+                </p>
+            </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">تسجيل الخروج</a>           
+            </div>
+        </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<button mat-icon-button matTooltip="Click to close" class="iconbutton" color="warn">
+    <mat-icon mat-icon-button matTooltip="Click to close" class="iconbutton" id="close-icon" (click)="closeDialog()">close</mat-icon>
+</button>
+<div class="main-content">
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;"> تعديل البيانات الأساسية للكلية</h4>
+                        <p class="card-category" style="text-align: right; font-weight: bold;">من فضلك ادخل جميع البيانات التالية صحيحة</p>
+                    </div>
+                    <div class="card-body">
+                        <br>
+
+                     <form [formGroup]="AddCollegeForm" id="AddCollegeForm">
+                        <div class="row">
+                               
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <input matInput placeholder="أختر اسم الكلية" id="CollegeName" formControlName="CollegeName" required  maxlength="150" [errorStateMatcher]="matcher">
+                                          <mat-error *ngIf="this.AddCollegeForm.controls['CollegeName'].hasError('required')">
+                                            يلزم اختيار <strong> اسم الكلية</strong>
+                                          </mat-error>
+                                        </mat-form-field>
+                                </div>
+                                
+                              
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <input id="myDate" matInput readonly [matDatepicker]="picker" formControlName="cDate" [errorStateMatcher]="matcher" required>
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                        <mat-label class="mat-label-right">تاريخ التأسيس</mat-label>
+                                        <mat-error *ngIf="this.AddCollegeForm.controls['cDate'].hasError('required')">
+                                          يلزم إدخال <strong>تاريخ التأسيس</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="القرار الجمهورى" id="CollegeDes" formControlName="CollegeDes" required  maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddCollegeForm.controls['CollegeDes'].hasError('required')">
+                                          يلزم اداخال <strong> القرار الجمهورى</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="عدد الأقسام العلمية" id="NumberofMajors" formControlName="NumberofMajors" required  [errorStateMatcher]="matcher">
+                                    <mat-error *ngIf="this.AddCollegeForm.controls['NumberofMajors'].hasError('required')">
+                                        يلزم اداخال <strong> عدد الأقسام العلمية</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+                              
+                              
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="عدد البرامج الدراسية" id="NumberofStudyPrograms" formControlName="NumberofStudyPrograms" required maxlength="150" [errorStateMatcher]="matcher">
+                                    <mat-error *ngIf="this.AddCollegeForm.controls['NumberofStudyPrograms'].hasError('required')">
+                                        يلزم اداخال <strong> عدد البرامج الدراسية</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder=" مدة الدراسة" id="StudyDuration" formControlName="StudyDuration" required  maxlength="150" [errorStateMatcher]="matcher">
+                                    <mat-error *ngIf="this.AddCollegeForm.controls['StudyDuration'].hasError('required')">
+                                        يلزم اداخال <strong> مدة الدراسة</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <input matInput [matDatepicker]="picker2" placeholder="تاريخ بدء الدراسة" id="StartDate" formControlName="StartDate" required [errorStateMatcher]="matcher">
+                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker2></mat-datepicker>
+                                        <mat-error *ngIf="this.AddCollegeForm.controls['StartDate'].hasError('required')">
+                                            يلزم اداخال <strong> تاريخ بدء الدراسة</strong>
+                                        </mat-error>
+                                      </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder=" لغة الدراسة" id="StudyLang" formControlName="StudyLang" required  maxlength="150" [errorStateMatcher]="matcher">
+                                        <mat-error *ngIf="this.AddCollegeForm.controls['StudyLang'].hasError('required')">
+                                            يلزم اداخال <strong> لغة الدراسة</strong>
+                                        </mat-error>
+                                      </mat-form-field>
+                                </div>
+  
+                     </div>
+  <br>
+
+                             <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="background:linear-gradient(60deg, #002361, #0A9442)!important; "
+                              type="submit" [disabled]="!AddCollegeForm.valid"  (click)="saveData()" >حفظ البيانات</button>
+                             <button mat-raised-button class="warn" (click)="Cancel()">الغاء</button>
+                            <div class="clearfix"></div>
+                </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- <p style="  text-align: center;"> Developed by <svg class="heart" viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+          c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+      </svg>  Programming Development Team </p> --> 
+  </div>
+  

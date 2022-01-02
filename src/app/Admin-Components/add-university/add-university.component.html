@@ -1,0 +1,104 @@
+<button mat-icon-button matTooltip="Click to close" class="iconbutton" color="warn">
+    <mat-icon mat-icon-button matTooltip="Click to close" class="iconbutton" id="close-icon" (click)="closeDialog()">خروج</mat-icon>
+</button>
+<div class="main-content">
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title" style="text-align: right; font-weight: bold;">إضافة كلية / تعديل</h4>
+                        <p class="card-category" style="text-align: right; font-weight: bold;">من فضلك ادخل جميع البيانات التالية صحيحة</p>
+                    </div>
+                    <div class="card-body">
+                        <br>
+
+                        <form [formGroup]="AddUniversityForm" id="AddUniversityForm">
+                            <div class="row">
+                               
+                                <div class="col-md-12">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="اسم الكلية" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                    <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        اسم الكلية <strong>يلزم إدخال</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="تاريخ تأسيس الكلية" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        تاريخ تأسيس الكلية <strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="القرار الجمهورى" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        القرار الجمهورى <strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="عدد الأقسام العلمية	" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        عدد الأقسام العلمية<strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="عدد البرامج الدراسية" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        عدد البرامج الدراسية <strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="تاريخ بدء الدراسة" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        تاريخ بدء الدراسة <strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="مدة الدراسة" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        مدة الدراسة	 <strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="لغة الدراسة" id="universityName" formControlName="universityName" required   maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddUniversityForm.controls['universityName'].hasError('required')">
+                                        لغة الدراسة <strong>يلزم إدخال</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+
+                             </div>
+  <br>
+
+                             <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="background:linear-gradient(60deg, #002361, #0A9442)!important; "
+                             (click)="saveData()" type="submit" [disabled]="!AddUniversityForm.valid" >حفظ البيانات</button>
+                             <button mat-raised-button class="warn" (click)="Cancel()">الغاء</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- <p style="  text-align: center;"> Developed by <svg class="heart" viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+          c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+      </svg>  Programming Development Team </p> -->
+  </div>
+  
