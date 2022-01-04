@@ -1,1 +1,69 @@
-<p>add-human-resorce-faculty-and-support-staff2 works!</p>
+<button mat-icon-button matTooltip="Click to close" class="iconbutton" color="warn">
+    <mat-icon mat-icon-button matTooltip="Click to close" class="iconbutton" id="close-icon" (click)="closeDialog()">close</mat-icon>
+</button>
+<div class="main-content">
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title" style="text-align: right;">إضافة / تعديل الجهاز الأدارى والفنى بالكلية</h4>
+                        <p class="card-category" style="text-align: right;">قم بإدخال البيانات كاملة</p>
+                    </div>
+                    <div class="card-body">
+                        <br>
+
+                        <form [formGroup]="AddHRFormSix" id="AddHRFormSix">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [errorStateMatcher]="matcher" id="College" formControlName="College" required placeholder="أختر اسم الكلية">
+                                            <mat-option *ngFor="let Col of College" [value]="Col.collegeID">
+                                                {{ Col.collegeName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddHRFormSix.controls['College'].hasError('required')">
+                                            يلزم اختيار <strong> اسم الكلية</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [errorStateMatcher]="matcher" id="AdminsPositions" formControlName="AdminsPositions" required placeholder="أختر نوع الوظيفة">
+                                            <mat-option *ngFor="let AdminsPositions of AdminsPositions" [value]="AdminsPositions.adminsPositionsID">
+                                                {{ AdminsPositions.adminsPositionName }}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="this.AddHRFormSix.controls['AdminsPositions'].hasError('required')">
+                                            يلزم اختيار <strong> نوع الوظيفة</strong>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="من فضلك ادخل العدد" id="count" formControlName="count" required  type="number"  maxlength="150" [errorStateMatcher]="matcher">
+                                      <mat-error *ngIf="this.AddHRFormSix.controls['count'].hasError('required')">
+                                          يلزم اداخال <strong> العدد</strong>
+                                      </mat-error>
+                                    </mat-form-field>
+                                  </div>
+                             </div>
+  <br>
+
+                             <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="background:linear-gradient(60deg, #002361, #0A9442)!important; "
+                             (click)="saveData()" type="submit" [disabled]="!AddHRFormSix.valid" >حفـــــظ البيانات</button>
+                             <button mat-raised-button class="warn" (click)="Cancel()">إلغاء</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- <p style="  text-align: center;"> Developed by <svg class="heart" viewBox="0 0 32 29.6">
+        <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+          c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+      </svg>  Programming Development Team </p> -->
+  </div>
+  

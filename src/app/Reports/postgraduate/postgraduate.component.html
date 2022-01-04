@@ -1,10 +1,11 @@
 <div class="main-content">
+    <!-- 1- البرامج المفعلة بالكلية -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewActiveProgram()"> إضافـــــــة</button>
   
                         <h4 class="card-title" style="text-align: right; font-weight: bold;" >خامساً: الدراسات العليا</h4>
                         <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> 1- البرامج المفعلة بالكلية</p>
@@ -29,69 +30,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >1</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    <tr style ="text-align: center;" *ngFor="let IActiveProgram of IActiveProgram">
+                                        <th scope="row" >{{IActiveProgram.autoID}}</th>
+                                        <td>{{IActiveProgram.programName}}</td>
+                                        <td>{{IActiveProgram.numberOfRegisteredMasters}}</td>
+                                        <td>{{IActiveProgram.numberOfRegisteredDoctrate}}</td>
+                                        <td>{{IActiveProgram.numberOfRegisteredMastersForAlumni}}</td>
+                                        <td>{{IActiveProgram.numberOfRegisteredDoctrateForAlumni}}</td>
                                         <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditLoadActiveProgram(IActiveProgram)">
                                                 <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                               </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
+                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteActiveProgram(IActiveProgram.activeProgramID)">
                                                 <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                               </button>
                                         </td>       
                                     </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >2</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>       
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >3</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>       
-                                    </tr>
-                                    <tr style ="text-align: right;">
+                                    <!-- <tr style ="text-align: right;">
                                         <th scope="row" colspan="2">الإجمالى</th>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>       
-                                    </tr>
+                                        <td></td>
+                                    </tr> -->
                                     </tbody>
                                 </table>
                                 <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
@@ -103,12 +65,15 @@
             </div>
     </div>
 <hr>
+<!-- برنامج تقدمت للحصول علي الموافقة 
+الخطوات التى تمت حتى الأن 
+-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewSummitionProgram()"> إضافـــــــة</button>
   
                         <h4 class="card-title" style="text-align: right; font-weight: bold;" >2- برنامج تقدمت للحصول علي الموافقة </h4>
                         <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> الخطوات التى تمت حتى الأن</p>
@@ -131,60 +96,58 @@
 
                                     </thead>
                                     <tbody>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >1</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    <tr style ="text-align: center;" *ngFor="let ISummitionProgramDTO of ISummitionProgramDTO">
+                                        <th scope="row" >{{ISummitionProgramDTO.autoID}}</th>
+                                        <td>{{ISummitionProgramDTO.programName}}</td>
+                                        <td>
+                                            <div *ngIf="ISummitionProgramDTO.prepareStatements === true"> 
+                                                نعم
+                                            </div>
+                                            <div *ngIf="ISummitionProgramDTO.prepareStatements === false"> 
+                                                لا
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngIf="ISummitionProgramDTO.highestApplicationForUniversities === true"> 
+                                                نعم
+                                            </div>
+                                            <div *ngIf="ISummitionProgramDTO.highestApplicationForUniversities === false"> 
+                                                لا 
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngIf="ISummitionProgramDTO.sectorAgreement === true"> 
+                                                نعم
+                                            </div>
+                                            <div *ngIf="ISummitionProgramDTO.sectorAgreement === false"> 
+                                                لا 
+                                            </div>
+                                        </td>
+                                       
+                                        <td>
+                                            <div *ngIf="ISummitionProgramDTO.agreementOfHighestUniversitie === true"> 
+                                                نعم
+                                            </div>
+                                            <div *ngIf="ISummitionProgramDTO.agreementOfHighestUniversitie === false"> 
+                                                لا 
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div *ngIf="ISummitionProgramDTO.agreementPrivateUniversity === true"> 
+                                                نعم
+                                            </div>
+                                            <div *ngIf="ISummitionProgramDTO.agreementPrivateUniversity === false"> 
+                                                لا 
+                                            </div>
+                                        </td>
                                         <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditSummitionProgramData(ISummitionProgramDTO)">
                                                 <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                               </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
+                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteSummitionProgram(ISummitionProgramDTO.summitionProgramID)">
                                                 <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                               </button>
                                         </td>       
-                                      
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >2</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>       
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >3</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>       
-                              
-                                     
                                     </tr>
                                     </tbody>
                                 </table>
@@ -197,12 +160,13 @@
             </div>
     </div>
         <hr>    
+        <!-- 3- برامج لم تتقدم حتى الأن مع ذكر الأسباب -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewInActivePorgramProfessionalDiploma()"> إضافـــــــة</button>
       
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" > 3- برامج لم تتقدم حتى الأن مع ذكر الأسباب</h4>
                         </div>
@@ -215,46 +179,18 @@
                                             <th scope="col" style="font-weight: bold; text-align: center;">اسم البرنامج</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;">الأسباب</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;">الإجراء </th>
-                                          
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >1</th>
-                                            <td></td>
-                                            <td></td>
+                                        <tr style ="text-align: center;" *ngFor="let InActivePorgramProfessionalDiplomaDTO of InActivePorgramProfessionalDiplomaDTO">
+                                            <th scope="row" >{{InActivePorgramProfessionalDiplomaDTO.autoID}}</th>
+                                            <td>{{InActivePorgramProfessionalDiplomaDTO.programName}}</td>
+                                            <td>{{InActivePorgramProfessionalDiplomaDTO.name}}</td>
                                             <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditInActivePorgramProfessionalDiplomaData(InActivePorgramProfessionalDiplomaDTO)">
                                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                                   </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                          
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >2</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >3</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteInActivePorgramProfessionalDiploma(InActivePorgramProfessionalDiplomaDTO.inActivePorgramProfessionalDiplomaID)" >
                                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                                   </button>
                                             </td>   
@@ -268,12 +204,13 @@
                 </div>
         </div>
         <hr>
+        <!-- 4- الدبلومات المهنية -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewInActivePorgramProfessionalDiploma2()"> إضافـــــــة</button>
       
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" > 4- الدبلومات المهنية</h4>
                         </div>
@@ -290,45 +227,19 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >1</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >2</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >3</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                        </tr>
+                                            <tr style ="text-align: center;" *ngFor="let InActivePorgramProfessionalDiploma2DTO of InActivePorgramProfessionalDiploma2DTO">
+                                                <th scope="row" >{{InActivePorgramProfessionalDiploma2DTO.autoID}}</th>
+                                                <td>{{InActivePorgramProfessionalDiploma2DTO.programName}}</td>
+                                                <td>{{InActivePorgramProfessionalDiploma2DTO.name}}</td>
+                                                <td style="text-align: center !important;">
+                                                    <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditInActivePorgramProfessionalDiploma2Data(InActivePorgramProfessionalDiploma2DTO)">
+                                                        <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
+                                                      </button>
+                                                    <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteInActivePorgramProfessionalDiploma2(InActivePorgramProfessionalDiploma2DTO.inActivePorgramProfessionalDiplomaID)" >
+                                                        <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
+                                                      </button>
+                                                </td>   
+                                            </tr>
                                         </tbody>
                                     </table>
                                     <p style="text-align: right; font-weight: bold;"> * يكرر هذا البيان وفقا لعدد البرامج</p>
@@ -340,12 +251,13 @@
                 </div>
         </div>
         <hr>
+        <!-- 5- النشر العلمى -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewScientificResearch()"> إضافـــــــة</button>
       
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" > 5- النشر العلمى</h4>
                         </div>
@@ -362,41 +274,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >1</th>
-                                            <td></td>
-                                            <td></td>
+                                        <tr style ="text-align: center;" *ngFor="let IScientificResearchDTO of IScientificResearchDTO">
+                                            <th scope="row" >{{IScientificResearchDTO.autoID}}</th>
+                                            <td>{{IScientificResearchDTO.numberOfResearches}}</td>
+                                            <td>{{IScientificResearchDTO.impactFactorJournal}}</td>
                                             <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditScientificResearch(IScientificResearchDTO)">
                                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                                   </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >2</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>   
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >3</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteScientificResearch(IScientificResearchDTO.scientificResearchID)">
                                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                                   </button>
                                             </td>   

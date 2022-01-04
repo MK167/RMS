@@ -654,29 +654,39 @@
                                                                 <th scope="row">{{IElectronicResourcesDTO.autoID}}</th>
                                                                 <td>{{IElectronicResourcesDTO.programName}}</td>
                                                                 <td>
-                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === 'd6790934-3532-43a0-f188-08d9cca38097'"> 
+                                                                    <div *ngIf="IElectronicResourcesDTO.ebsco === true"> 
                                                                         نعم
                                                                     </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === '84b878fa-cb7e-4e60-f189-08d9cca38097'"> 
-                                                                        نعم 
+                                                                    <div *ngIf="IElectronicResourcesDTO.ebsco === false"> 
+                                                                        لا
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === 'aa44b8ab-ec1f-4c7c-f18a-08d9cca38097'"> 
+                                                                    <div *ngIf="IElectronicResourcesDTO.mcGrawHill === true"> 
                                                                         نعم
                                                                     </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === '3b166545-b25c-4606-f18b-08d9cca38097'"> 
-                                                                        نعم 
+                                                                    <div *ngIf="IElectronicResourcesDTO.mcGrawHill === false"> 
+                                                                        لا
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div *ngIf="IElectronicResourcesDTO.electronicResourcesItemID === '7ded6096-42f5-43a2-f18c-08d9cca38097'"> 
-                                                                        نعم 
+                                                                    <div *ngIf="IElectronicResourcesDTO.elsevier === true"> 
+                                                                        نعم
                                                                     </div>
+                                                                    <div *ngIf="IElectronicResourcesDTO.elsevier === false"> 
+                                                                        لا
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div *ngIf="IElectronicResourcesDTO.ekb === true"> 
+                                                                        نعم
+                                                                    </div>
+                                                                    <div *ngIf="IElectronicResourcesDTO.ekb === false"> 
+                                                                        لا
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    {{IElectronicResourcesDTO.programName.others}}
                                                                 </td>
     
                                                                 <td style="text-align: center !important;">

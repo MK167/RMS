@@ -2,6 +2,8 @@ import { AuthService } from './../../Services/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserLoginService } from '../../Services/user-login.service';
+import { User } from '../../Models/RMS-Models/User';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,15 +14,16 @@ export class SignInComponent implements OnInit {
 
   loginForm : FormGroup;
   invalidLogin : boolean = false;
-  
-  constructor(fb : FormBuilder, private router : Router, private AuthService: AuthService) { 
+  _Users : User[];
+
+  constructor(fb : FormBuilder, private router : Router, private AuthService: AuthService, private UserLoginService: UserLoginService) { 
     this.loginForm = fb.group({
-      email : ['',Validators.required],
+      username : ['',Validators.required],
       password : ['', Validators.required]
     });
   }
   get UserName(){
-    return this.loginForm.get('email');
+    return this.loginForm.get('username');
   }
 
   get Password(){
@@ -33,13 +36,16 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   signIn(){
-      if(this.loginForm.controls != null || this.Password != null)
+    this.UserLoginService.GetUserData(this.UserName.value,this.Password.value)
+    .subscribe(Users => {
+      this._Users = Users;
+      if(this._Users != null && this.loginForm.controls != null)
     {
       this.AuthService.isLoggedIn =true;
       localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('CollegeID', 'CB6FC7DB-0E4E-4DB2-19F8-08D9CB28489E');
-      sessionStorage.setItem('CollegeID', 'CB6FC7DB-0E4E-4DB2-19F8-08D9CB28489E');
+      sessionStorage.setItem('CollegeID', this._Users['collegeID']);
       this.router.navigate(['/dashboard']);
     }
     else
@@ -48,12 +54,12 @@ export class SignInComponent implements OnInit {
     invalidLogin : true
     })
     }
-  }
+  });      
+}
+}  
 
   // login(){
   //   this.AuthService.isLoggedIn = true;
   //   localStorage.setItem('isLoggedIn', 'true');
   //   this.router.navigate(['/dashboard']);
-  //   }
-
-}
+  //   

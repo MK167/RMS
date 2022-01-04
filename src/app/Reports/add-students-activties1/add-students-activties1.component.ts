@@ -101,7 +101,7 @@ export class AddStudentsActivties1Component implements OnInit {
          if (this.IStudentActivitiesDTO == null) {
              let NewInter = {
               collegeID : this.AddActivityForm.get('College').value,
-              activityTypeID :  'ba3ba29b-d98f-4a23-0934-08d9cdd5e903',
+              activityTypeID :  'AE2C9699-6BCC-4704-2713-08D9CE2343E7',
               flagType : 1,
               studentCount : this.AddActivityForm.get('studentCount').value,
              };
@@ -117,7 +117,7 @@ export class AddStudentsActivties1Component implements OnInit {
           let NewInter = {
             studentActivitiesID : this.IStudentActivitiesDTO.studentActivitiesID,
             collegeID : this.AddActivityForm.get('College').value,
-            activityTypeID :  'ba3ba29b-d98f-4a23-0934-08d9cdd5e903',
+            activityTypeID :  'AE2C9699-6BCC-4704-2713-08D9CE2343E7',
             flagType : 1,
             studentCount : this.AddActivityForm.get('studentCount').value,
           };

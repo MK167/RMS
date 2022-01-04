@@ -4,7 +4,9 @@ export interface IElectronicResourcesDTO {
     collegeName: string;
     programID: string;
     programName: string;
-    electronicResourcesItemID: string;
-    electronicResourcesItemName: string;
-    autoID: number;
+    ebsco: boolean;
+    mcGrawHill: boolean;
+    elsevier: boolean;
+    ekb: boolean;
+    others: string;
 }

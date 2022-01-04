@@ -28,7 +28,7 @@ export class EnvironmentalandCommunityServiceComponent implements OnInit {
   }
 
   LoadEnviroData() {
-    this.EnviroService.GetAllEnviro().subscribe(data => {
+    this.EnviroService.GetAllEnviro(localStorage.getItem('CollegeID')).subscribe(data => {
       // tslint:disable-next-line: no-var-keyword
       var count = 0;
       data.forEach(element => {

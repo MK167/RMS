@@ -8,5 +8,5 @@ export interface IAdvisorDTO {
     advisorItemName: string;
     numberOfStd: number;
     percentage: number;
-    collegeActions: string
+    collegeActions: string;
 }

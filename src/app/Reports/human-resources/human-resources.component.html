@@ -1,5 +1,6 @@
 <div class="main-content">
-    <div class="container-fluid">
+    <!-- 1- الهيكل الأكاديمي بالكلية -->
+    <div class="container-fluid">   
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -22,67 +23,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >1</th>
-                                        <td>عميد الكلية</td>
-                                        <td></td>
+                                    <tr style ="text-align: center;" *ngFor="let HR_CollegeAdmins of HR_CollegeAdmins">
+                                        <th scope="row" >{{HR_CollegeAdmins.autoID}}</th>
+                                        <td>{{HR_CollegeAdmins.adminsPositionName}}</td>
+                                        <td>{{HR_CollegeAdmins.hR_CollegeAdminName}}</td>
                                         <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
+                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;" (click)="EditHRData(HR_CollegeAdmins)">
                                                 <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                               </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >2</th>
-                                        <td>وكيل الكلية لشئون التعليم والطلاب</td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >3</th>
-                                        <td>وكيل الكلية لشئون خدمة البيئة وخدمة المجتمع</td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >4</th>
-                                        <td>وكيل الكلية لشئون الدراسات العليا</td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >5</th>
-                                        <td>مدير وحده الجودة</td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
+                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" (click)="onDeleteHR(HR_CollegeAdmins.hR_CollegeAdminsID)">
                                                 <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                               </button>
                                         </td>
@@ -96,12 +45,13 @@
                 </div>
             </div>
     </div>
+    <!-- Majors -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewMajor()"> إضافـــــــة</button>
   
                         <!-- <h4 class="card-title" style="text-align: right; font-weight: bold;" >ثالثاً: المواردالبشرية</h4> -->
                         <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> رؤساء الأقسام</p>
@@ -119,45 +69,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >1</th>
-                                        <td></td>
-                                        <td></td>
+                                    <tr style ="text-align: center;" *ngFor="let HR_HeadOfDepartments of HR_HeadOfDepartments">
+                                        <th scope="row" >{{HR_HeadOfDepartments.autoID}}</th>
+                                        <td>{{HR_HeadOfDepartments.majorName}}</td>
+                                        <td>{{HR_HeadOfDepartments.hR_HeadOfDepartmentName}}</td>
                                         <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
+                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;" (click)="EditMajorData(HR_HeadOfDepartments)">
                                                 <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                               </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
+                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" (click)="onDeleteMajor(HR_HeadOfDepartments.hR_HeadOfDepartmentsID)">
                                                 <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                               </button>
                                         </td>
                                     </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >2</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>
-                                    </tr>
-                                    <tr style ="text-align: center;">
-                                        <th scope="row" >3</th>
-                                        <td></td>
-                                        <td></td>
-                                        <td style="text-align: center !important;">
-                                            <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                              </button>
-                                            <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                              </button>
-                                        </td>
-                                    </tr>
+                                  
                                     </tbody>
                                 </table>
                                 <p style="text-align: right; font-weight: bold;"> * يكرر حسب عدد الأقسام العلمية</p>
@@ -167,13 +92,14 @@
                 </div>
             </div>
     </div>
-        <hr>    
+        <hr>   
+         <!--الوحدات البحثية  -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewSU()"> إضافـــــــة</button>
       
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" > 2- الوحدات البحثية والوحدات ذات الطابع الخاص</h4>
                         </div>
@@ -192,47 +118,17 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >1</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                        <tr style ="text-align: center;" *ngFor="let HR_ResearchUnits of HR_ResearchUnits">
+                                            <th scope="row" >{{HR_ResearchUnits.autoID}}</th>
+                                            <td>{{HR_ResearchUnits.unitName}}</td>
+                                            <td>{{HR_ResearchUnits.headName}}</td>
+                                            <td>{{HR_ResearchUnits.headJobNumber}}</td>
+                                            <td>{{HR_ResearchUnits.headPhone}}</td>
                                             <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;" (click)="EditSUData(HR_ResearchUnits)">
                                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                                   </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >2</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>
-                                        </tr>
-                                        <tr style ="text-align: center;">
-                                            <th scope="row" >3</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" (click)="onDeleteSU(onDeleteSU.hR_ResearchUnitsID)">
                                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                                   </button>
                                             </td>
@@ -248,12 +144,13 @@
                 </div>
         </div>
         <hr>
+        <!-- ASA -->
         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header card-header-danger">
-                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewASA()"> إضافـــــــة</button>
                                             <h4 class="card-title" style="text-align: right; font-weight: bold;" >3- أعضاء هيئة التدريس والهيئة المعاونة</h4>
                                             <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> توضح الجداول التالية أعداد اعضاء هيئة التدريس والهيئة التدريسية المعاونة العاملين بالكلية</p>
                                             <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> جدول (1) إجمالي أعضاء هيئة التدريس في الكلية اللعام الجامعي 2022-2021</p>
@@ -289,97 +186,39 @@
                                                             <th>منتدب</th>
                                                             <th>إجمالى</th>
                                                         </tr>
-                                                       
                                                          </thead>
                                                          
                                                         <tbody>
-                                                        <tr style="text-align: center;">
-                                                            <th scope="row">1</th>
-                                                            <td>قسم علوم الحاسب كلية تكنولوجيا المعلومات<br> جامعة مصر للعلوم والتكنولوجيا</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>30</td>
-                                                            <td>5</td>
-                                                            <td>25</td>
-                                                            <td>18</td>
-                                                            <td>30</td>
+                                                        <tr style="text-align: center;" *ngFor="let HR_AcademicStaffAll of HR_AcademicStaffAll">
+                                                            <th scope="row">{{HR_AcademicStaffAll.autoID}}</th>
+                                                            <td>{{HR_AcademicStaffAll.majorName}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfProf}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfProf_Loaned}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfProfDelegated}}</td>
+                                                            <td>{{HR_AcademicStaffAll.sumOfPro}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfAss_Prof}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfAss_Prof_Loaned}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfAss_Prof_Delegated}}</td>
+                                                            <td>{{HR_AcademicStaffAll.sumOfAss_Pro}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfTeasher}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfTeasher_Loaned}}</td>
+                                                            <td>{{HR_AcademicStaffAll.numberOfTeasher_Delegated}}</td>
+                                                            <td>{{HR_AcademicStaffAll.sumOfTeashers}}</td>
+                                                            <td>{{HR_AcademicStaffAll.totalOnJob}}</td>
+                                                            <td>{{HR_AcademicStaffAll.totalOnVacation}}</td>
+                                                            <td>{{HR_AcademicStaffAll.totalOppointess}}</td>
+                                                            <td>{{HR_AcademicStaffAll.totalDelegtes}}</td>
+                                                            <td>{{HR_AcademicStaffAll.total}}</td>
                                                             <td style="text-align: center !important;">
-                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
+                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;" (click)=" EditASAData(HR_AcademicStaffAll)">
                                                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                                                   </button>
-                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
+                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" (click)="onDeleteASA(HR_AcademicStaffAll.hR_AcademicStaffID)">
                                                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                                                   </button>
                                                             </td>
                                                         </tr>
-                                                        <tr style="text-align: center;">
-                                                            <th scope="row">2</th>
-                                                            <td>قسم نظم المعومات كلية تكنولوجيا المعلومات<br> جامعة مصر للعلوم والتكنولوجيا</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>30</td>
-                                                            <td>5</td>
-                                                            <td>25</td>
-                                                            <td>18</td>
-                                                            <td>30</td>
-                                                            <td style="text-align: center !important;">
-                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                                  </button>
-                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                                  </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr style="text-align: center;">
-                                                            <th scope="row">3</th>
-                                                            <td>قسم الذكاء الاصطناعى كلية تكنولوجيا المعلومات <br> جامعة مصر للعلوم والتكنولوجيا</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>10</td>
-                                                            <td>5</td>
-                                                            <td>6</td>
-                                                            <td>21</td>
-                                                            <td>30</td>
-                                                            <td>5</td>
-                                                            <td>25</td>
-                                                            <td>18</td>
-                                                            <td>30</td>
-                                                            <td style="text-align: center !important;">
-                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                                  </button>
-                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                                  </button>
-                                                            </td>
-                                                        </tr>
+                                                        
                                                         </tbody>
                                                     </table>
                                                     <p style="text-align: right; font-weight: bold;"> * يكرر حسب عدد الأقسام العلمية بالكلية</p>
@@ -391,12 +230,13 @@
                                 </div>
         </div>
         <hr>
+        <!-- AS -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewAS()"> إضافـــــــة</button>
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" >3- أعضاء هيئة التدريس والهيئة المعاونة</h4>
                             <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> جدول (2) إجمالي أعضاء هيئة التدريسية المعاونة بالكلية اللعام الجامعي </p>
                         </div>
@@ -423,80 +263,28 @@
                                             <th>معين</th>
                                             <th>منتدب</th>
                                             <th>إجمالى</th>
-
                                         </tr>
-                                       
                                          </thead>
-                                         
                                         <tbody>
-                                        <tr style="text-align: center;">
-                                            <th scope="row">1</th>
-                                            
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                        <tr style="text-align: center;" *ngFor="let HR_AcademicStaff of HR_AcademicStaff">
+                                            <th scope="row">{{HR_AcademicStaff.autoID}}</th>
+                                            <td>{{HR_AcademicStaff.majorName}}</td>
+                                            <td>{{HR_AcademicStaff.numberOfAss_Prof}}</td>
+                                            <td>{{HR_AcademicStaff.numberOfAss_Prof_Delegated}}</td>
+                                            <td>{{HR_AcademicStaff.sumOfAss_Pro}}</td>
+                                            <td>{{HR_AcademicStaff.numberOfTeasher}}</td>
+                                            <td>{{HR_AcademicStaff.numberOfTeasher_Delegated}}</td>
+                                            <td>{{HR_AcademicStaff.sumOfTeashers}}</td>
+                                            <td>{{HR_AcademicStaff.totalOnVacation}}</td>
+                                            <td>{{HR_AcademicStaff.totalOnChildCareVacation}}</td>
+                                            <td>{{HR_AcademicStaff.totalOnJob}}</td>
+                                            <td>{{HR_AcademicStaff.totalDelegtesOnJob}}</td>
+                                            <td>{{HR_AcademicStaff.total}}</td>
                                             <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
+                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary" style="text-align: center !important;" (click)="EditASData(HR_AcademicStaff)">
                                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                                   </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>
-                                        </tr>
-                                        <tr style="text-align: center;">
-                                            <th scope="row">2</th>
-                                           
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>                
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                                    <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                                  </button>
-                                            </td>
-                                        </tr>
-                                        <tr style="text-align: center;">
-                                            <th scope="row">3</th>
-                                           
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="text-align: center !important;">
-                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                                    <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                                  </button>
-                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
+                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" (click)="onDeleteAS(HR_AcademicStaff.hR_AcademicStaffID)">
                                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                                   </button>
                                             </td>
@@ -512,12 +300,13 @@
                 </div>
 </div>
 <hr>
+<!-- TA -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
-                  <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewTA()"> إضافـــــــة</button>
 
                     <h4 class="card-title" style="text-align: right; font-weight: bold;" > 4- الجهاز الأدارى والفنى بالكلية</h4>
                     <p class="card-category" style="text-align: right; color: white; font-weight: bold;"> جدول (4) بيان بأعداد الجهاز الأدارى والفنى بالكلية وطبقا لمؤهلأتهم العلمية </p>
@@ -536,57 +325,20 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr style ="text-align: center;">
-                                    <th scope="row" >1</th>
-                                    <td></td>
-                                    <td></td>
+                                <tr style ="text-align: center;" *ngFor="let HR_TechnicalAndAdmin of HR_TechnicalAndAdmin">
+                                    <th scope="row" >{{HR_TechnicalAndAdmin.autoID}}</th>
+                                    <td>{{HR_TechnicalAndAdmin.adminsPositionName}}</td>
+                                    <td>{{HR_TechnicalAndAdmin.count}}</td>
                                     <td style="text-align: center !important;">
-                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
+                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;" (click)="EditTAData(HR_TechnicalAndAdmin)">
                                             <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                           </button>
-                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
+                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" (click)="onDeleteTA(HR_TechnicalAndAdmin.hR_TechnicalAndAdminID)">
                                             <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                           </button>
                                     </td>
                                 </tr>
-                                <tr style ="text-align: center;">
-                                    <th scope="row" >2</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td style="text-align: center !important;">
-                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                            <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                          </button>
-                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                            <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                          </button>
-                                    </td>
-                                </tr>
-                                <tr style ="text-align: center;">
-                                    <th scope="row" >3</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td style="text-align: center !important;">
-                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                            <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                          </button>
-                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                            <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                          </button>
-                                    </td>
-                                </tr>
-                                <tr style ="text-align: right;">
-                                    <th scope="row" colspan="2">الإجمالى</th>
-                                    <td></td>
-                                    <td style="text-align: center !important;">
-                                        <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"   style="text-align: center !important;">
-                                            <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
-                                          </button>
-                                        <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="text-align: center !important;" >
-                                            <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
-                                          </button>
-                                    </td>
-                                </tr>
+                              
                                 </tbody>
                             </table>
                         </div>

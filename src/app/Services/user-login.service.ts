@@ -7,53 +7,58 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class EnviroService {
-
-  readonly baseUrl = environment.baseUrl;
-
-  apiUrlTable: string = 'Enviro';
-
+export class UserLoginService {
+  apiUrlTable: string = 'User';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+  readonly baseUrl = environment.baseUrl;
 
   constructor(private httpClient: HttpClient) { }
 
 //Get All
-  GetAllEnviro(id): Observable<any> {
-    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable+ "/GetAllEnviro"}/${id}`)
+  GetAllUser() : Observable<any> { 
+    return this.httpClient.get(this.baseUrl + this.apiUrlTable+ "/GetAllUser")
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  //Get UserData
+  GetUserData(username: any, password: any) : Observable<any> { 
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable+ "/GetUserData"}/${username}/${password}`)
     .pipe(
       catchError(this.handleError)
     );
   }
 
   //Get by ID
-  GetEnviroByID(id: any): Observable<any> {
-    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable + "/GetEnviroByID"}/${id}`).pipe(
+  GetUserByID(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable + "/GetUserByID"}/${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
   //Create / Add
-  CreateEnviro(data: any): Observable<any> {
-    return this.httpClient.post(this.baseUrl  + this.apiUrlTable + "/AddEnviro" , data).pipe(
+  CreateUser(data: any): Observable<any> {
+    return this.httpClient.post(this.baseUrl  + this.apiUrlTable + "/AddUser" , data).pipe(
       catchError(this.handleError)
     );
   }
 
   // Edit/ Update 
-  UpdateEnviro(id): Observable<any> {
-    return this.httpClient.put(this.baseUrl  + this.apiUrlTable + "/UpdateEnviro" , id).pipe(
+  UpdateUser(id): Observable<any> {
+    return this.httpClient.put(this.baseUrl  + this.apiUrlTable + "/UpdateUser" , id).pipe(
       catchError(this.handleError)
     );
   }
 
   // Delete
-  DeleteEnviro(id: any): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl + this.apiUrlTable + "/DeleteEnviro"}/${id}`).pipe(
+  DeleteUser(id: any): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl + this.apiUrlTable + "/DeleteUser"}/${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
-   
+  
   // Handle API errors
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -66,4 +71,6 @@ export class EnviroService {
     return throwError(
       'Something bad happened; please try again later.');
   };
+
+  
 }
