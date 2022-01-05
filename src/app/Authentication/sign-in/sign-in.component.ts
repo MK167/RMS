@@ -13,36 +13,35 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SignInComponent implements OnInit {
 
-  loginForm : FormGroup;
-  invalidLogin : boolean = false;
-  _Users : User[];
-  loading : boolean = false;
+  loginForm: FormGroup;
+  invalidLogin = false;
+  _Users: User[];
+  loading = false;
 
-  constructor(fb : FormBuilder, private router : Router, 
+  constructor(fb: FormBuilder, private router: Router,
     private AuthService: AuthService,
      private UserLoginService: UserLoginService,
-     private SpinnerService: NgxSpinnerService) { 
+     private SpinnerService: NgxSpinnerService) {
     this.loginForm = fb.group({
-      username : ['',Validators.required],
+      username : ['', Validators.required],
       password : ['', Validators.required]
     });
   }
-  get UserName(){
+  get UserName() {
     return this.loginForm.get('username');
   }
 
-  get Password(){
+  get Password() {
     return this.loginForm.get('password');
   }
-  get f()
-  {
+  get f() {
     return this.loginForm.controls;
   }
 
   ngOnInit(): void {
   }
 
-  signIn(){
+  signIn() {
     this.SpinnerService.show();
     this.UserLoginService.GetUserData(this.UserName.value, this.Password.value)
     .subscribe(Users => {
@@ -64,6 +63,7 @@ export class SignInComponent implements OnInit {
   });
 }
 }
+
   // login(){
   //   this.AuthService.isLoggedIn = true;
   //   localStorage.setItem('isLoggedIn', 'true');
