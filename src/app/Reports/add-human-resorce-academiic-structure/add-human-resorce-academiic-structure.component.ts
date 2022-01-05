@@ -136,13 +136,13 @@ export class AddHumanResorceAcademiicStructureComponent implements OnInit {
          this.dialogRef.close();
        }
        LoadMajorData() {
-        this.CollegeBasicDataService.GetAllMajor().subscribe((data: ICMajors) => {
+        this.CollegeBasicDataService.GetAllMajor(sessionStorage.getItem('CollegeID')).subscribe((data: ICMajors) => {
           this.ICMajors = data;
           console.log(this.ICMajors);
        });
       }
        LoadCollegeData() {
-        this.CollegeBasicDataService.GetAllCollege().subscribe((data: ICollege) => {
+        this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
           console.log(this.College);
        });

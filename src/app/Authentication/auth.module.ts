@@ -6,6 +6,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    NgxSpinnerModule ,
+    NgHttpLoaderModule.forRoot(),
   ]
 })
 export class AuthModule { }

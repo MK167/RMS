@@ -20,8 +20,8 @@ export class CollegeBasicDataService {
   constructor(private httpClient: HttpClient) { }
 
 //Get All
-  GetAllCollege() : Observable<any> { 
-    return this.httpClient.get(this.baseUrl + this.apiUrlTable+ "/GetAllCollege")
+  GetAllCollege(id: any) : Observable<any> { 
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable+ "/GetAllCollege"}/${id}`)
     .pipe(
       catchError(this.handleError)
     );
@@ -58,8 +58,8 @@ export class CollegeBasicDataService {
   //// Majors ///////////////////////////////////////
   
   //Get All
-  GetAllMajor() : Observable<any> { 
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableMajor+ "/GetAllMajor")
+  GetAllMajor(id :any ) : Observable<any> { 
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableMajor+ "/GetAllMajor"}/${id}`)
     .pipe(
       catchError(this.handleError)
     );
@@ -98,8 +98,8 @@ export class CollegeBasicDataService {
   ///////////////// Programs ///////////////////////
 
   //Get All
-  GetAllProgram() : Observable<any> { 
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableProgram+ "/GetAllProgram")
+  GetAllProgram(id :any) : Observable<any> { 
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableProgram+ "/GetAllProgram"}/${id}`)
     .pipe(
       catchError(this.handleError)
     );

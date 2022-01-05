@@ -18,8 +18,8 @@ export class StudentsActvitesService {
   constructor(private httpClient: HttpClient) { }
 
 //Get All
-  GetAllActivityType(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTable + "/GetAllActivityType")
+  GetAllActivityType(id :any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable + "/GetAllActivityType"}/${id}`)
     .pipe(
       catchError(this.handleError)
     );

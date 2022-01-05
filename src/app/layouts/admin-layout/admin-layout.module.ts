@@ -132,6 +132,8 @@ import { AddStudentsActivties2Component } from 'app/Reports/add-students-activti
 import { AddStudentsActivties3Component } from 'app/Reports/add-students-activties3/add-students-activties3.component';
 import { AddStudentsOfProgramsComponent } from 'app/Reports/add-students-of-programs/add-students-of-programs.component';
 import { AddAcademicsProgram15Component } from 'app/Reports/add-academics-program15/add-academics-program15.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -195,6 +197,9 @@ import { AddAcademicsProgram15Component } from 'app/Reports/add-academics-progra
     OverlayModule,
     PortalModule,
     ScrollingModule,
+    NgHttpLoaderModule.forRoot(),
+    NgxSpinnerModule  
+
     ],
   declarations: [
     DashboardComponent,

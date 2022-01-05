@@ -44,7 +44,7 @@ export class StudentsActivitiesComponent implements OnInit {
 
   LoadCollegeData() {
 
-    this.CollegeData.GetAllCollege().subscribe(data => {
+    this.CollegeData.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe(data => {
       this.ICollege = data;
       console.log(this.ICollege);
     }
@@ -53,7 +53,7 @@ export class StudentsActivitiesComponent implements OnInit {
 
   ////////////////////  Operations About Activity Type \\\\\\\\\\\\\\\\\\\\\\\\\\
   LoadActivityTypeData() {
-    this.StudentsActvitesService.GetAllActivityType().subscribe(data => {
+    this.StudentsActvitesService.GetAllActivityType(sessionStorage.getItem('CollegeID')).subscribe(data => {
       this.IActivityTypeDTO = data;
       console.log(this.IActivityTypeDTO);
     }
@@ -62,7 +62,7 @@ export class StudentsActivitiesComponent implements OnInit {
 
   ////////////////////  Operations About Activity Type \\\\\\\\\\\\\\\\\\\\\\\\\\
   LoadStdActivityTypeData() {
-    this.StudentsActvitesService.GetAllStudentActivities(1, localStorage.getItem('CollegeID')).subscribe(data => {
+    this.StudentsActvitesService.GetAllStudentActivities(1, sessionStorage.getItem('CollegeID')).subscribe(data => {
       this.IStudentActivitiesDTO = data;
       console.log(this.IStudentActivitiesDTO);
     }
@@ -121,7 +121,7 @@ export class StudentsActivitiesComponent implements OnInit {
   }
   ////////////////////  Operations About Activity Type \\\\\\\\\\\\\\\\\\\\\\\\\\
   LoadStdActivityType2Data() {
-    this.StudentsActvitesService.GetAllStudentActivities(2, localStorage.getItem('CollegeID')).subscribe(data => {
+    this.StudentsActvitesService.GetAllStudentActivities(2, sessionStorage.getItem('CollegeID')).subscribe(data => {
       this.IStudentActivities2DTO = data;
       console.log(this.IStudentActivities2DTO);
     }
@@ -178,7 +178,7 @@ export class StudentsActivitiesComponent implements OnInit {
   }
   ////////////////////  Operations About Activity Type \\\\\\\\\\\\\\\\\\\\\\\\\\
   LoadStdActivityType3Data() {
-    this.StudentsActvitesService.GetAllStudentActivities(3, localStorage.getItem('CollegeID')).subscribe(data => {
+    this.StudentsActvitesService.GetAllStudentActivities(3, sessionStorage.getItem('CollegeID')).subscribe(data => {
       this.IStudentActivities3DTO = data;
       console.log(this.IStudentActivities3DTO);
     }

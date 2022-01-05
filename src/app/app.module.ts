@@ -56,6 +56,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -118,6 +120,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     OverlayModule,
     PortalModule,
     ScrollingModule,
+    NgxSpinnerModule,
+    NgHttpLoaderModule.forRoot(),
+
   ],
   declarations: [
     AppComponent,

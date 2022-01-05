@@ -76,13 +76,13 @@ export class AddAcademicsProgram13Component implements OnInit {
        }
 
        LoadCollegeData() {
-        this.CollegeBasicDataService.GetAllCollege().subscribe((data: ICollege) => {
+        this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
           console.log(this.College);
        });
       }
        LoadStudyPlanItemsData() {
-        this.Academics.GetAllStudyPlanItem().subscribe((data: IStudyPlanItemDTO) => {
+        this.Academics.GetAllStudyPlanItem(sessionStorage.getItem('CollegeID')).subscribe((data: IStudyPlanItemDTO) => {
           this.IStudyPlanItemDTO = data;
           console.log(this.IStudyPlanItemDTO);
        });

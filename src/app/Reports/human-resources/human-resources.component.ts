@@ -51,7 +51,7 @@ constructor(
   //////////////////// CRUD Operations About HR \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 
   LoadHRData(){
-    this.HRService.GetAllHR_CollegeAdmins(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.HRService.GetAllHR_CollegeAdmins(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -92,7 +92,7 @@ constructor(
 //////////////////// CRUD Operations About ASA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadASAData(){
-    this.HRService.GetAllHR_AcademicStaffAll(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.HRService.GetAllHR_AcademicStaffAll(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -149,7 +149,7 @@ LoadASAData(){
   }
   // AS
   LoadASData(){
-    this.HRService.GetAllHR_AcademicStaff(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.HRService.GetAllHR_AcademicStaff(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -207,7 +207,7 @@ LoadASAData(){
 //////////////////// CRUD Operations About SU \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadSUData(){
-    this.HRService.GetAllHR_ResearchUnits(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.HRService.GetAllHR_ResearchUnits(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -266,7 +266,7 @@ LoadASAData(){
 //////////////////// CRUD Operations About TA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadTAData(){
-    this.HRService.GetAllHR_TechnicalAndAdmin(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.HRService.GetAllHR_TechnicalAndAdmin(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -324,7 +324,7 @@ LoadTAData(){
 //////////////////// CRUD Operations About Majors \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadMajorsData(){
-    this.HRService.GetAllHR_HeadOfDepartments(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.HRService.GetAllHR_HeadOfDepartments(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;

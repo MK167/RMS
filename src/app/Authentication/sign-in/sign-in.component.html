@@ -17,7 +17,8 @@
             -webkit-border-radius: 500px;
             border: 2px solid white; ">
             <form class="login100-form validate-form p-b-33 p-t-5" [formGroup]="loginForm" (ngSubmit)="signIn()">
-
+                
+                 
                 <div class="wrap-input100 validate-input" style="margin-top: 25px;">
                     <input class="input100 form" formControlName="username"  type="text" name="username" id="username" placeholder="أسم المستخدم">
                     <span class="focus-input100" data-placeholder="&#xe82a;"></span>
@@ -39,8 +40,15 @@
                         تسجيل الدخول
                     </button>
                 </div>
-
+                <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                    <p style="color: white; font-weight: bold;">جارى تحميل البيانات برجاء الانتظار ... </p>  
+                    </ngx-spinner>   
+                <div class="alert alert-danger" *ngIf="loginForm.errors">
+                    <!-- <span class="focus-input100" data-placeholder="&#xe80f;"></span> -->
+                    <strong style="color: #ffff;text-align: center !important;"> إسم المستخدم او كلمة السر غير صحيحة </strong>
+                 </div>
             </form>
+          
         </div>
         </div>
         </div>

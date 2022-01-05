@@ -45,7 +45,7 @@ export class PostgraduateComponent implements OnInit {
   //////////////////// CRUD Operations About ActiveProgram \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadActiveProgram() {
-    this.PGServicesService.GetAllActiveProgram(localStorage.getItem('CollegeID')).subscribe(data => {
+    this.PGServicesService.GetAllActiveProgram(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -107,7 +107,7 @@ export class PostgraduateComponent implements OnInit {
 ///////////////////// CRUD Operations InActivePorgramProfessionalDiploma \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadInActivePorgramProfessionalDiplomaData() {
-    this.PGServicesService.GetAllInActivePorgramProfessionalDiploma(1, localStorage.getItem('CollegeID')).subscribe(data => {
+    this.PGServicesService.GetAllInActivePorgramProfessionalDiploma(1, sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -169,7 +169,7 @@ export class PostgraduateComponent implements OnInit {
 ///////////////////// CRUD Operations InActivePorgramProfessionalDiploma \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadInActivePorgramProfessionalDiploma2Data() {
-    this.PGServicesService.GetAllInActivePorgramProfessionalDiploma(2, localStorage.getItem('CollegeID')).subscribe(data => {
+    this.PGServicesService.GetAllInActivePorgramProfessionalDiploma(2, sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -231,7 +231,7 @@ export class PostgraduateComponent implements OnInit {
 ///////////////////// CRUD Operations ScientificResearch \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIScientificResearch() {
-  this.PGServicesService.GetAllScientificResearch(localStorage.getItem('CollegeID')).subscribe(data => {
+  this.PGServicesService.GetAllScientificResearch(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -293,7 +293,7 @@ AddNewScientificResearch() {
 ///////////////////// CRUD Operations SummitionProgram \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadISummitionProgramData() {
-  this.PGServicesService.GetAllSummitionProgram(localStorage.getItem('CollegeID')).subscribe(data => {
+  this.PGServicesService.GetAllSummitionProgram(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {

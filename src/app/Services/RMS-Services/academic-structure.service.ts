@@ -40,8 +40,8 @@ export class AcademicStructureService {
 //// AcademicsStructure ////////////////////////////
 
 // Get All
-  GetAllAcademicsStructure(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTable + '/GetAllAcademicsStructure')
+  GetAllAcademicsStructure(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable + '/GetAllAcademicsStructure'}/${id}`)
     .pipe(
       catchError(this.handleError)
     );
@@ -78,12 +78,162 @@ export class AcademicStructureService {
   //// AccreditationRequirements ///////////////////////////////////////
 
   // Get All
-  GetAllAccreditationRequirements(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableAccreditationRequirements + '/GetAllAccreditationRequirements')
+  GetAllAccreditationRequirements(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableAccreditationRequirements + '/GetAllAccreditationRequirements'}/${id}`)
     .pipe(
       catchError(this.handleError)
     );
   }
+
+
+ // Get All
+ GetAllAdvisor(id: any): Observable<any> {
+  return this.httpClient.get(`${this.baseUrl + this.apiUrlTableAdvisor + '/GetAllAdvisor'}/${id}`)
+  .pipe(
+    catchError(this.handleError)
+  );
+}
+
+  // Get All
+  GetAllAdvisorItems(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableAdvisorItems + '/GetAllAdvisorItems'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+ // Get All
+ GetAllCo_op(id: any): Observable<any> {
+  return this.httpClient.get(`${this.baseUrl + this.apiUrlTableCo_op + '/GetAllCo_op'}/${id}`)
+  .pipe(
+    catchError(this.handleError)
+  );
+}
+
+  // Get All
+  GetAllCorrectiveAction(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableCorrectiveAction + '/GetAllCorrectiveAction'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+  // Get All
+  GetAllCoursesCommitment(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableCoursesCommitment + '/GetAllCoursesCommitment'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Get All
+    GetAllElectronicResources(id: any): Observable<any> {
+      return this.httpClient.get(`${this.baseUrl + this.apiUrlTableElectronicResources + '/GetAllElectronicResources'}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+
+  // Get All
+  GetAllElectronicResourcesItem(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableElectronicResourcesItem + '/GetAllElectronicResourcesItem'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+  // Get All
+  GetAllFieldTraining(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableFieldTraining + '/GetAllFieldTraining'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Get All
+  GetAllInternationalAccreditation(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableInternationalAccreditation + '/GetAllInternationalAccreditation'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Get All
+  GetAllMoodle(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableMoodle + '/GetAllMoodle'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Get All
+  GetAllNumberOfCoursesDTO(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableNumberOfCourses + '/GetAllNumberOfCoursesDTO'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Get All
+  GetAllScientificDegrees(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableScientificDegrees + '/GetAllScientificDegrees'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+  // Get All
+  GetAllStudentsNumber(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableStudentsNumber + '/GetAllStudentsNumber'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+    // Get All
+    GetAllStudentTransfer(id: any): Observable<any> {
+      return this.httpClient.get(`${this.baseUrl + this.apiUrlTableStudentTransfer + '/GetAllStudentTransfer'}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+
+     // Get All
+  GetAllStudyPlan(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableStudyPlan + '/GetAllStudyPlan'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+  // Get All
+  GetAllStudyPlanItem(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableStudyPlanItem + '/GetAllStudyPlanItem'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Get All
+  GetAllTeachingAndLearningMethods(id: any): Observable<any> {
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTableTeachingAndLearningMethods + '/GetAllTeachingAndLearningMethods'}/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+    // Get All
+    GetAllTeachingAndLearningMethodsItem(id: any): Observable<any> {
+      return this.httpClient.get(`${this.baseUrl + this.apiUrlTableTeachingAndLearningMethodsItem + '/GetAllTeachingAndLearningMethodsItem'}/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
+
+    
 
   // Get by ID
   GetAccreditationRequirementsByID(id: any): Observable<any> {
@@ -116,13 +266,7 @@ export class AcademicStructureService {
  ///////////////////////////////////////////////////
   ///////////////// Advisors ///////////////////////
 
-  // Get All
-  GetAllAdvisor(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableAdvisor + '/GetAllAdvisor')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+ 
 
   // Get by ID
   GetAdvisorByID(id: any): Observable<any> {
@@ -156,13 +300,6 @@ export class AcademicStructureService {
    ///////////////////////////////////////////////////
   ///////////////// AdvisorItemss ///////////////////////
 
-  // Get All
-  GetAllAdvisorItems(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableAdvisorItems + '/GetAllAdvisorItems')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetAdvisorItemsByID(id: any): Observable<any> {
@@ -195,13 +332,7 @@ export class AcademicStructureService {
   ///////////////////////////////////////////////////
   ///////////////// Co_op ////////////////////////////
 
-  // Get All
-  GetAllCo_op(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableCo_op + '/GetAllCo_op')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+ 
 
   // Get by ID
   GetCo_opByID(id: any): Observable<any> {
@@ -234,13 +365,6 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// CorrectiveAction /////////////////
 
-  // Get All
-  GetAllCorrectiveAction(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableCorrectiveAction + '/GetAllCorrectiveAction')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetCorrectiveActionByID(id: any): Observable<any> {
@@ -273,13 +397,6 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// CoursesCommitment /////////////////
 
-  // Get All
-  GetAllCoursesCommitment(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableCoursesCommitment + '/GetAllCoursesCommitment')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetCoursesCommitmentByID(id: any): Observable<any> {
@@ -311,13 +428,6 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// ElectronicResources /////////////////
 
-  // Get All
-  GetAllElectronicResources(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableElectronicResources + '/GetAllElectronicResources')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetElectronicResourcesByID(id: any): Observable<any> {
@@ -349,13 +459,7 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// ElectronicResourcesItem /////////////////
 
-  // Get All
-  GetAllElectronicResourcesItem(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableElectronicResourcesItem + '/GetAllElectronicResourcesItem')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+
 
   // Get by ID
   GetElectronicResourcesItemByID(id: any): Observable<any> {
@@ -388,13 +492,6 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// FieldTraining /////////////////
 
-  // Get All
-  GetAllFieldTraining(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableFieldTraining + '/GetAllFieldTraining')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetFieldTrainingByID(id: any): Observable<any> {
@@ -426,13 +523,6 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// InternationalAccreditation /////////////////
 
-  // Get All
-  GetAllInternationalAccreditation(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableInternationalAccreditation + '/GetAllInternationalAccreditation')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetInternationalAccreditationByID(id: any): Observable<any> {
@@ -466,13 +556,6 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// Moodle /////////////////
 
-  // Get All
-  GetAllMoodle(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableMoodle + '/GetAllMoodle')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetMoodleByID(id: any): Observable<any> {
@@ -506,13 +589,7 @@ export class AcademicStructureService {
     ///////////////////////////////////////////////////
   ///////////////// NumberOfCourses /////////////////
 
-  // Get All
-  GetAllNumberOfCoursesDTO(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableNumberOfCourses + '/GetAllNumberOfCoursesDTO')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+
 
   // Get by ID
   GetNumberOfCoursesDTOByID(id: any): Observable<any> {
@@ -547,13 +624,7 @@ export class AcademicStructureService {
       ///////////////////////////////////////////////////
   ///////////////// ScientificDegrees /////////////////
 
-  // Get All
-  GetAllScientificDegrees(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableScientificDegrees + '/GetAllScientificDegrees')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+
 
   // Get by ID
   GetScientificDegreesByID(id: any): Observable<any> {
@@ -587,13 +658,6 @@ export class AcademicStructureService {
       ///////////////////////////////////////////////////
   ///////////////// StudentsNumber /////////////////
 
-  // Get All
-  GetAllStudentsNumber(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableStudentsNumber + '/GetAllStudentsNumber')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetStudentsNumberByID(id: any): Observable<any> {
@@ -627,13 +691,7 @@ export class AcademicStructureService {
   ///////////////////////////////////////////////////
   ///////////////// StudentTransfer /////////////////
 
-  // Get All
-  GetAllStudentTransfer(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableStudentTransfer + '/GetAllStudentTransfer')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+
 
   // Get by ID
   GetStudentTransferByID(id: any): Observable<any> {
@@ -668,13 +726,7 @@ export class AcademicStructureService {
    ///////////////////////////////////////////////////
   ///////////////// StudyPlan /////////////////
 
-  // Get All
-  GetAllStudyPlan(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableStudyPlan + '/GetAllStudyPlan')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+ 
 
   // Get by ID
   GetStudyPlanByID(id: any): Observable<any> {
@@ -707,14 +759,6 @@ export class AcademicStructureService {
    ///////////////////////////////////////////////////
   ///////////////// StudyPlanItem /////////////////
 
-  // Get All
-  GetAllStudyPlanItem(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableStudyPlanItem + '/GetAllStudyPlanItem')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
-
   // Get by ID
   GetStudyPlanItemByID(id: any): Observable<any> {
     // tslint:disable-next-line: max-line-length
@@ -746,13 +790,7 @@ export class AcademicStructureService {
    ///////////////////////////////////////////////////
   ///////////////// TeachingAndLearningMethods /////////////////
 
-  // Get All
-  GetAllTeachingAndLearningMethods(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableTeachingAndLearningMethods + '/GetAllTeachingAndLearningMethods')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
+  
 
   // Get by ID
   GetTeachingAndLearningMethodsByID(id: any): Observable<any> {
@@ -785,13 +823,6 @@ export class AcademicStructureService {
    ///////////////////////////////////////////////////
   ///////////////// TeachingAndLearningMethodsItem /////////////////
 
-  // Get All
-  GetAllTeachingAndLearningMethodsItem(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + this.apiUrlTableTeachingAndLearningMethodsItem + '/GetAllTeachingAndLearningMethodsItem')
-    .pipe(
-      catchError(this.handleError)
-    );
-  }
 
   // Get by ID
   GetTeachingAndLearningMethodsItemByID(id: any): Observable<any> {

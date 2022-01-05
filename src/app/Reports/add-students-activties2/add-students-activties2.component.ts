@@ -89,13 +89,13 @@ export class AddStudentsActivties2Component implements OnInit {
        }
 
        LoadCollegeData() {
-        this.CollegeBasicDataService.GetAllCollege().subscribe((data: ICollege) => {
+        this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
           console.log(this.College);
        });
       }
        LoadActivityTypeData() {
-        this.StudentsActvitesService.GetAllActivityType().subscribe((data: IActivityTypeDTO) => {
+        this.StudentsActvitesService.GetAllActivityType(sessionStorage.getItem('CollegeID')).subscribe((data: IActivityTypeDTO) => {
           this.IActivityTypeDTO = data;
           console.log(this.IActivityTypeDTO);
        });

@@ -106,19 +106,19 @@ _sumOfStd: number;
        }
 
        LoadCollegeData() {
-        this.CollegeBasicDataService.GetAllCollege().subscribe((data: ICollege) => {
+        this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
           console.log(this.College);
        });
       }
       LoadScientificDegree() {
-        this.Academics.GetAllScientificDegrees().subscribe((data: IScientificDegreesDTO) => {
+        this.Academics.GetAllScientificDegrees(sessionStorage.getItem('CollegeID')).subscribe((data: IScientificDegreesDTO) => {
           this.scientificDegree = data;
           console.log(this.scientificDegree);
        });
       }
        LoadProgramData() {
-        this.CollegeBasicDataService.GetAllProgram().subscribe((data: ICPrograms) => {
+        this.CollegeBasicDataService.GetAllProgram(sessionStorage.getItem('CollegeID')).subscribe((data: ICPrograms) => {
           this.Program = data;
           console.log(this.Program);
        });

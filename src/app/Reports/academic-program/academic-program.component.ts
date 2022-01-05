@@ -91,7 +91,7 @@ export class AcademicProgramComponent implements OnInit {
   //////////////////// CRUD Operations About Academic Structure \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadAcademicsData() {
-    this.Academics.GetAllAcademicsStructure().subscribe(data => {
+    this.Academics.GetAllAcademicsStructure(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -153,7 +153,7 @@ export class AcademicProgramComponent implements OnInit {
 ///////////////////// CRUD Operations AccreditationRequirements \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
   LoadAccreditationRequirementsData() {
-    this.Academics.GetAllAccreditationRequirements().subscribe(data => {
+    this.Academics.GetAllAccreditationRequirements(sessionStorage.getItem('CollegeID')).subscribe(data => {
       var count = 0;
       data.forEach(element => {
         count+=1;
@@ -214,7 +214,7 @@ export class AcademicProgramComponent implements OnInit {
 ///////////////////// CRUD Operations Advisor \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIAdvisorData() {
-  this.Academics.GetAllAdvisor().subscribe(data => {
+  this.Academics.GetAllAdvisor(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -276,7 +276,7 @@ AddNewAdvisor() {
 ///////////////////// CRUD Operations StudentsNumber \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIStudentsNumberData() {
-  this.Academics.GetAllStudentsNumber().subscribe(data => {
+  this.Academics.GetAllStudentsNumber(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -338,7 +338,7 @@ AddNewStudentsNumber() {
 ///////////////////// CRUD Operations CorrectiveAction \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadICorrectiveActionData() {
-  this.Academics.GetAllCorrectiveAction().subscribe(data => {
+  this.Academics.GetAllCorrectiveAction(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -400,7 +400,7 @@ AddNewCorrectiveAction() {
 ///////////////////// CRUD Operations Co_op \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadICo_opData() {
-  this.Academics.GetAllCo_op().subscribe(data => {
+  this.Academics.GetAllCo_op(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -462,7 +462,7 @@ AddNewCo_op() {
 ///////////////////// CRUD Operations InternationalAccreditation \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadInternationalAccreditationData() {
-  this.Academics.GetAllInternationalAccreditation().subscribe(data => {
+  this.Academics.GetAllInternationalAccreditation(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -524,7 +524,7 @@ AddNewInternationalAccreditation() {
 ///////////////////// CRUD Operations StudentsTransfer \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIStudentTransferData() {
-  this.Academics.GetAllStudentTransfer().subscribe(data => {
+  this.Academics.GetAllStudentTransfer(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -586,7 +586,7 @@ AddNewStudentTransfer() {
 ///////////////////// CRUD Operations Number Of Courses \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadINumberOfCoursesaData() {
-  this.Academics.GetAllNumberOfCoursesDTO().subscribe(data => {
+  this.Academics.GetAllNumberOfCoursesDTO(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -648,7 +648,7 @@ AddNewNumberOfCourses() {
 ///////////////////// CRUD Operations CoursesCommitmentDTO \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadICoursesCommitmentData() {
-  this.Academics.GetAllCoursesCommitment().subscribe(data => {
+  this.Academics.GetAllCoursesCommitment(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -710,7 +710,7 @@ AddNewICoursesCommitment() {
 ///////////////////// CRUD Operations StudyPlan\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIStudyPlanData() {
-  this.Academics.GetAllStudyPlan().subscribe(data => {
+  this.Academics.GetAllStudyPlan(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -772,7 +772,7 @@ AddNewIStudyPlan() {
 ///////////////////// CRUD Operations IElectronicResourcesDTOs\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIElectronicResourcesDTOsData() {
-  this.Academics.GetAllElectronicResources().subscribe(data => {
+  this.Academics.GetAllElectronicResources(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -833,7 +833,7 @@ AddNewIIElectronicResourcesDTOs() {
 }
 ///////////////////// Load Operations IElectronicResources Items\\\\\\\\\\\\\\\\\\\\\\\\\\\
 LoadIElectronicResourcesItemsData() {
-  this.Academics.GetAllElectronicResourcesItem().subscribe(data => {
+  this.Academics.GetAllElectronicResourcesItem(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -851,7 +851,7 @@ LoadIElectronicResourcesItemsData() {
 ///////////////////// CRUD Operations Moodle \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadIMoodelDTOsData() {
-  this.Academics.GetAllMoodle().subscribe(data => {
+  this.Academics.GetAllMoodle(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -913,7 +913,7 @@ AddNewIMoodleDTO() {
 ///////////////////// CRUD Operations Teaching and Learning Methods \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadTeachingData() {
-  this.Academics.GetAllTeachingAndLearningMethods().subscribe(data => {
+  this.Academics.GetAllTeachingAndLearningMethods(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {
@@ -975,7 +975,7 @@ AddNewTeaching() {
 ///////////////////// CRUD Operations Field Trainig Methods \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 LoadFieldTData() {
-  this.Academics.GetAllFieldTraining().subscribe(data => {
+  this.Academics.GetAllFieldTraining(sessionStorage.getItem('CollegeID')).subscribe(data => {
     // tslint:disable-next-line: no-var-keyword
     var count = 0;
     data.forEach(element => {

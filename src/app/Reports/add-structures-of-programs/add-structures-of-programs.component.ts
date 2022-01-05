@@ -75,12 +75,12 @@ export class AddStructuresOfProgramsComponent implements OnInit {
          this.dialogRef.close();
       }
        LoadCollegeData() {
-        this.CollegeBasicDataService.GetAllCollege().subscribe((data: ICollege) => {
+        this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
        });
       }
        LoadProgram() {
-        this.CollegeBasicDataService.GetAllProgram().subscribe((data: ICPrograms) => {
+        this.CollegeBasicDataService.GetAllProgram(sessionStorage.getItem('CollegeID')).subscribe((data: ICPrograms) => {
           this.Program = data;
        });
       }

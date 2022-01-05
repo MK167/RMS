@@ -55,7 +55,7 @@ export class CollegeDataComponent implements OnInit {
 //////////////////// CRUD Operations About College \\\\\\\\\\\\\\\\\\\\\\\\\\\ 
 
     LoadCollegeData(){
-      this.CollegeData.GetAllCollege().subscribe(data => {
+      this.CollegeData.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe(data => {
         this.ICollege = data; 
         console.log(this.ICollege);}
         
@@ -114,7 +114,7 @@ export class CollegeDataComponent implements OnInit {
 //////////////////// CRUD Operations About Majors \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     LoadMajorsData(){
-      this.CollegeData.GetAllMajor().subscribe(data => {
+      this.CollegeData.GetAllMajor(sessionStorage.getItem('CollegeID')).subscribe(data => {
         var count = 0;
         data.forEach(element => {
           count+=1;
@@ -175,7 +175,7 @@ export class CollegeDataComponent implements OnInit {
 //////////////////// CRUD Operations About Programs \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     LoadProgramsData(){
-      this.CollegeData.GetAllProgram().subscribe(data => {
+      this.CollegeData.GetAllProgram(sessionStorage.getItem('CollegeID')).subscribe(data => {
         var count = 0;
         data.forEach(element => {
           count+=1;

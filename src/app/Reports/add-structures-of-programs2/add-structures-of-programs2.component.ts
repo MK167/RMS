@@ -75,13 +75,14 @@ export class AddStructuresOfPrograms2Component implements OnInit {
        }
 
        LoadCollegeData() {
-        this.CollegeBasicDataService.GetAllCollege().subscribe((data: ICollege) => {
+        this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
           console.log(this.College);
        });
       }
        LoadITeachingAndLearningMethodsItemDTO() {
-        this.Academics.GetAllTeachingAndLearningMethodsItem().subscribe((data: ITeachingAndLearningMethodsItemDTO) => {
+        // tslint:disable-next-line: max-line-length
+        this.Academics.GetAllTeachingAndLearningMethodsItem(sessionStorage.getItem('CollegeID')).subscribe((data: ITeachingAndLearningMethodsItemDTO) => {
           this.ITeachingAndLearningMethodsItemDTO = data;
        });
       }
