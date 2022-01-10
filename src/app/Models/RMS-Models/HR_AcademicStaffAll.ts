@@ -7,19 +7,27 @@ majorName: string;
 
 numberOfProf: number;
 numberOfProf_Loaned: number;
-numberOfProfDelegated: number;
+
+numberOfProfDelegatedDayOne: number;
+numberOfProfDelegatedDayTwo: number;
+
 sumOfPro: number;
 
 numberOfAss_Prof: number;
 numberOfAss_Prof_Loaned: number;
-numberOfAss_Prof_Delegated: number;
+
+numberOfAss_Prof_DelegatedDayOne: number;
+numberOfAss_Prof_DelegatedDayTwo: number;
+
 sumOfAss_Pro: number;
 
 numberOfTeasher: number;
 numberOfTeasher_Loaned: number;
-numberOfTeasher_Delegated: number;
-sumOfTeashers: number;
 
+numberOfTeasher_DelegatedDayOne: number;
+numberOfTeasher_DelegatedDayTwo: number;
+
+sumOfTeashers: number;
 totalOnJob: number;
 totalOnVacation: number;
 totalOppointess: number;

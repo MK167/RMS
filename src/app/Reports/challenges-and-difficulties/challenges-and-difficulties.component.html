@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-danger">
-                    <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;"> إضافـــــــة</button>
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewEnviro()"> إضافـــــــة</button>
                     <h4 class="card-title" style="text-align: right; font-weight: bold;" > سابعا : التحديات والصعوبات </h4>
                 </div>
                 <div class="card-body">
@@ -21,16 +21,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr style="text-align: right;">
-                            <th scope="row"></th>
-                            <td ></td>
-                            <td></td>
-                            <td></td>
+                        <tr style="text-align: right;" *ngFor="let Challenges_and_DifficultiesDTO of Challenges_and_DifficultiesDTO">
+                            <th scope="row">{{Challenges_and_DifficultiesDTO.challenges}}</th>
+                            <td >{{Challenges_and_DifficultiesDTO.difficulties}}</td>
+                            <td>{{Challenges_and_DifficultiesDTO.solutions}}</td>
+                            <td>{{Challenges_and_DifficultiesDTO.apply}}</td>
                             <td style="text-align: center !important;">
-                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditEnviro(Challenges_and_DifficultiesDTO)">
                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                   </button>
-                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;">
+                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;"(click)="onDeleteEnviro(Challenges_and_DifficultiesDTO.challenges_and_DifficultiesID)">
                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                   </button>
                             </td>                                                        

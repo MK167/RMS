@@ -32,6 +32,7 @@ export class AddEnvironmentalAndCommunityServiceComponent implements OnInit {
   // _IEnviroStructure: string;
   collegeID: string;
   enviroName: any;
+  description: any;
   //
   College: ICollege;
   IEnviroDTO: IEnviroDTO;
@@ -44,16 +45,19 @@ export class AddEnvironmentalAndCommunityServiceComponent implements OnInit {
         this.IEnviroDTO = null;
         this.collegeID = '';
         this.enviroName = '';
+        this.description = '';
       } else {
         this.IEnviroDTO = data;
         this.collegeID = data.collegeID;
         this.enviroName = data.enviroName;
+        this.description = data.description;
 
       }
 
       this.AddEnviroForm = fb.group({
         College: [this.collegeID, Validators.required],
         enviroName: [this.enviroName, Validators.required ],
+        description: [this.description, Validators.required ],
       })
      }
      get f()
@@ -88,6 +92,7 @@ export class AddEnvironmentalAndCommunityServiceComponent implements OnInit {
              let NewInter = {
               collegeID : this.AddEnviroForm.get('College').value,
               enviroName : this.AddEnviroForm.get('enviroName').value,
+              description : this.AddEnviroForm.get('description').value,
              };
              this.Enviro.CreateEnviro(NewInter)
                  .subscribe(
@@ -102,6 +107,7 @@ export class AddEnvironmentalAndCommunityServiceComponent implements OnInit {
             enviroID : this.IEnviroDTO.enviroID,
             collegeID : this.AddEnviroForm.get('College').value,
             enviroName : this.AddEnviroForm.get('enviroName').value,
+            description : this.AddEnviroForm.get('description').value,
           };
 
           console.log(NewInter);

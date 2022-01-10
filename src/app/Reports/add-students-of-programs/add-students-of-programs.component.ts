@@ -35,11 +35,13 @@ export class AddStudentsOfProgramsComponent implements OnInit {
   cMajorsID: string;  
   
   numberOfAss_Prof: number;
-  numberOfAss_ProfDelegated: number;
+  numberOfAss_ProfDelegatedDayOne: number;
+  numberOfAss_ProfDelegatedDayTwo: number;
   sumOfAss_Pro: number;
 
   numberOfTeasher: number;
-  numberOfTeasher_Delegated: number;
+  numberOfTeasher_DelegatedDayOne: number;
+  numberOfTeasher_DelegatedDayTwo: number;
   sumOfTeashers: number;
 
   totalOnVacation: number;
@@ -56,10 +58,12 @@ export class AddStudentsOfProgramsComponent implements OnInit {
         this.collegeID = '';
         this.cMajorsID = '';
         this.numberOfAss_Prof= 0;
-        this.numberOfAss_ProfDelegated= 0;
+        this.numberOfAss_ProfDelegatedDayOne= 0;
+        this.numberOfAss_ProfDelegatedDayTwo= 0;
         this.sumOfAss_Pro= 0;
         this.numberOfTeasher= 0;
-        this.numberOfTeasher_Delegated= 0;
+        this.numberOfTeasher_DelegatedDayOne= 0;
+        this.numberOfTeasher_DelegatedDayTwo= 0;
         this.sumOfTeashers= 0;
         this.totalOnVacation= 0;
         this.totalOnChildCareVacation= 0;
@@ -72,10 +76,12 @@ export class AddStudentsOfProgramsComponent implements OnInit {
         this.collegeID = data.collegeID;
         this.cMajorsID = data.cMajorsID;
         this.numberOfAss_Prof= data.numberOfAss_Prof;
-        this.numberOfAss_ProfDelegated= data.numberOfAss_Prof_Delegated;
+        this.numberOfAss_ProfDelegatedDayOne= data.numberOfAss_Prof_DelegatedDayOne;
+        this.numberOfAss_ProfDelegatedDayTwo= data.numberOfAss_Prof_DelegatedDayTwo;
         this.sumOfAss_Pro= data.sumOfAss_Pro;
         this.numberOfTeasher= data.numberOfTeasher;
-        this.numberOfTeasher_Delegated= data.numberOfTeasher_Delegated;
+        this.numberOfTeasher_DelegatedDayOne= data.numberOfTeasher_DelegatedDayOne;
+        this.numberOfTeasher_DelegatedDayTwo= data.numberOfTeasher_DelegatedDayTwo;
         this.sumOfTeashers= data.sumOfTeashers;
         this.totalOnVacation= data.totalOnVacation;
         this.totalOnChildCareVacation= data.totalOnChildCareVacation;
@@ -91,10 +97,12 @@ export class AddStudentsOfProgramsComponent implements OnInit {
         ICMajors: [this.cMajorsID, Validators.required],
 
         numberOfAss_Prof:[this.numberOfAss_Prof, Validators.required],
-        numberOfAss_ProfDelegated:[this.numberOfAss_ProfDelegated, Validators.required],
+        numberOfAss_ProfDelegatedDayOne:[this.numberOfAss_ProfDelegatedDayOne, Validators.required],
+        numberOfAss_ProfDelegatedDayTwo:[this.numberOfAss_ProfDelegatedDayTwo, Validators.required],
         sumOfAss_Pro:[this.sumOfAss_Pro, Validators.required],
         numberOfTeasher:[this.numberOfTeasher, Validators.required],
-        numberOfTeasher_Delegated:[this.numberOfTeasher_Delegated, Validators.required],
+        numberOfTeasher_DelegatedDayOne:[this.numberOfTeasher_DelegatedDayOne, Validators.required],
+        numberOfTeasher_DelegatedDayTwo:[this.numberOfTeasher_DelegatedDayTwo, Validators.required],
         sumOfTeashers:[this.sumOfTeashers, Validators.required],
         totalOnVacation:[this.totalOnVacation, Validators.required],
         totalOnChildCareVacation:[this.totalOnChildCareVacation, Validators.required],
@@ -134,10 +142,12 @@ export class AddStudentsOfProgramsComponent implements OnInit {
               collegeID: this.AddHRFormFive.controls['College'].value,
               cMajorsID : this.AddHRFormFive.get('ICMajors').value,
               numberOfAss_Prof:this.AddHRFormFive.get('numberOfAss_Prof').value,
-              numberOfAss_ProfDelegated:this.AddHRFormFive.get('numberOfAss_ProfDelegated').value,
+              numberOfAss_ProfDelegatedDayOne:this.AddHRFormFive.get('numberOfAss_ProfDelegatedDayOne').value,  
+              numberOfAss_ProfDelegatedDayTwo:this.AddHRFormFive.get('numberOfAss_ProfDelegatedDayTwo').value,  
               sumOfAss_Pro:this.AddHRFormFive.get('sumOfAss_Pro').value,
               numberOfTeasher:this.AddHRFormFive.get('numberOfTeasher').value,
-              numberOfTeasher_Delegated:this.AddHRFormFive.get('numberOfTeasher_Delegated').value,
+              numberOfTeasher_DelegatedDayOne:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayOne').value,
+              numberOfTeasher_DelegatedDayTwo:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayTwo').value,
               sumOfTeashers:this.AddHRFormFive.get('sumOfTeashers').value,
               totalOnVacation:this.AddHRFormFive.get('totalOnVacation').value,
               totalOnChildCareVacation:this.AddHRFormFive.get('totalOnChildCareVacation').value,
@@ -159,10 +169,12 @@ export class AddStudentsOfProgramsComponent implements OnInit {
             collegeID: this.AddHRFormFive.controls['College'].value,
             cMajorsID : this.AddHRFormFive.get('ICMajors').value,
             numberOfAss_Prof:this.AddHRFormFive.get('numberOfAss_Prof').value,
-            numberOfAss_ProfDelegated:this.AddHRFormFive.get('numberOfAss_ProfDelegated').value,
+            numberOfAss_ProfDelegatedDayOne:this.AddHRFormFive.get('numberOfAss_ProfDelegatedDayOne').value,
+            numberOfAss_ProfDelegatedDayTwo:this.AddHRFormFive.get('numberOfAss_ProfDelegatedDayTwo').value,
             sumOfAss_Pro:this.AddHRFormFive.get('sumOfAss_Pro').value,
             numberOfTeasher:this.AddHRFormFive.get('numberOfTeasher').value,
-            numberOfTeasher_Delegated:this.AddHRFormFive.get('numberOfTeasher_Delegated').value,
+            numberOfTeasher_DelegatedDayOne:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayOne').value,
+            numberOfTeasher_DelegatedDayTwo:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayTwo').value,
             sumOfTeashers:this.AddHRFormFive.get('sumOfTeashers').value,
             totalOnVacation:this.AddHRFormFive.get('totalOnVacation').value,
             totalOnChildCareVacation:this.AddHRFormFive.get('totalOnChildCareVacation').value,

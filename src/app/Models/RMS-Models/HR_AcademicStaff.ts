@@ -6,11 +6,13 @@ cMajorsID: string;
 majorName: string;
 
 numberOfAss_Prof: number;
-numberOfAss_Prof_Delegated: number;
+numberOfAss_Prof_DelegatedDayOne: number;
+numberOfAss_Prof_DelegatedDayTwo: number;
 sumOfAss_Pro: number;
 
 numberOfTeasher: number;
-numberOfTeasher_Delegated: number;
+numberOfTeasher_DelegatedDayOne: number;
+numberOfTeasher_DelegatedDayTwo: number;
 sumOfTeashers: number;
 
 totalOnVacation: number;

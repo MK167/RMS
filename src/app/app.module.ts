@@ -58,6 +58,7 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AddChallengesAndDifficultiesComponent } from './Reports/add-challenges-and-difficulties/add-challenges-and-difficulties.component';
 
 
 

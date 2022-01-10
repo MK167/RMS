@@ -136,6 +136,7 @@ import { AddAcademicsProgram15Component } from 'app/Reports/add-academics-progra
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ChallengesAndDifficultiesComponent } from 'app/Reports/challenges-and-difficulties/challenges-and-difficulties.component';
+import { AddChallengesAndDifficultiesComponent } from 'app/Reports/add-challenges-and-difficulties/add-challenges-and-difficulties.component';
 
 @NgModule({
   imports: [
@@ -287,6 +288,7 @@ import { ChallengesAndDifficultiesComponent } from 'app/Reports/challenges-and-d
     AddEnvironmentalAndCommunityServiceComponent,
     AddCollegeProgramsComponent,
     AddAcademicsProgram15Component,
+    AddChallengesAndDifficultiesComponent,
     ChallengesAndDifficultiesComponent
   ]
 })

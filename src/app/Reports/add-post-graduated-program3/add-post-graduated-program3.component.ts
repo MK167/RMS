@@ -32,6 +32,7 @@ export class AddPostGraduatedProgram3Component implements OnInit {
   collegeID: string;
   programID: string;
   name: string;
+  international_Coop:string;
   flagType: number;
   
   //
@@ -48,12 +49,14 @@ export class AddPostGraduatedProgram3Component implements OnInit {
         this.collegeID = '';
         this.programID = '';
         this.name = '';
+        this.international_Coop= '';
         this.flagType = 0;
       } else {
         this.InActivePorgramProfessionalDiplomaDTO = data;
         this.collegeID = data.collegeID;
         this.programID = data.programID;
         this.name = data.name;
+        this.international_Coop = data.international_Coop;
         this.flagType = data.flagType;
      
       }
@@ -62,8 +65,7 @@ export class AddPostGraduatedProgram3Component implements OnInit {
         College: [this.collegeID, Validators.required],
         Program: [this.programID, Validators.required ],
         name: [this.name, Validators.required ],
-        // flagType: [this.flagType, Validators.required ],
-     
+        international_Coop: [this.international_Coop, Validators.required ],
       })
      }
      get f()
@@ -99,6 +101,7 @@ export class AddPostGraduatedProgram3Component implements OnInit {
               collegeID : this.AddDiplomaForm.get('College').value,
               programID : this.AddDiplomaForm.get('Program').value,
               name : this.AddDiplomaForm.get('name').value,
+              international_Coop : this.AddDiplomaForm.get('international_Coop').value,
               flagType : 2
              
              };
@@ -116,6 +119,7 @@ export class AddPostGraduatedProgram3Component implements OnInit {
             collegeID : this.AddDiplomaForm.get('College').value,
             programID : this.AddDiplomaForm.get('Program').value,
             name : this.AddDiplomaForm.get('name').value,
+            international_Coop : this.AddDiplomaForm.get('international_Coop').value,
             flagType : 2
      
           };

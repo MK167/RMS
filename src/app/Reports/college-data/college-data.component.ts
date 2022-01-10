@@ -31,7 +31,7 @@ export class CollegeDataComponent implements OnInit {
   //Define Display Coulmns Headers in Angular Material 
   displayedColumns: string[] = ['CollegeName','CDate', 'RepublicanDecision','CNumberOfMajors','CNumberOfPrograms', 'CAcademicDate', 'CTimeAcademic', 'CStudyLang','Cactions'];
   displayedColumnss: string[] = ['MajorID', 'MajorName','CollegeOfMajor','Mactions']
-  displayedColumnsss: string[] = ['ProgramID', 'ProgramName','ProgramRenew','CollegeName','Pactions']
+  displayedColumnsss: string[] = ['ProgramID', 'ProgramName','renewCollegeDate','CollegeName','Pactions']
 
   //Define DataSource 
   dataSource = new MatTableDataSource<ICollege>(this.ICollege);

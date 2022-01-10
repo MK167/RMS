@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <br>
 
-                        <form [formGroup]="AddEnviroForm" id="AddEnviroForm">
+                        <form [formGroup]="AddChallengesAndDifficultiesForm" id="AddChallengesAndDifficultiesForm">
                             <div class="row">
                                
                                 <div class="col-md-12">
@@ -25,7 +25,7 @@
                                                 {{ Col.collegeName }}
                                             </mat-option>
                                         </mat-select>
-                                        <mat-error *ngIf="this.AddEnviroForm.controls['College'].hasError('required')">
+                                        <mat-error *ngIf="this.AddChallengesAndDifficultiesForm.controls['College'].hasError('required')">
                                             يلزم اختيار <strong> اسم الكلية</strong>
                                         </mat-error>
                                     </mat-form-field>
@@ -33,28 +33,49 @@
 
                                 <div class="col-md-12">
                                     <mat-form-field class="example-full-width">
-                                        <mat-label class="mat-label-right">  خدمة المجتمع وتنمية البيئة</mat-label>
-                                        <textarea matInput placeholder="من فضلك ادخل   خدمة المجتمع وتنمية البيئة" id="enviroName" formControlName="enviroName" required type="text" [errorStateMatcher]="matcher">
+                                        <mat-label class="mat-label-right">  التحديات</mat-label>
+                                        <textarea matInput placeholder="من فضلك ادخل التحديات" id="challenges" formControlName="challenges" required type="text" [errorStateMatcher]="matcher">
                                         </textarea>
-                                        <mat-error *ngIf="this.AddEnviroForm.controls['enviroName'].hasError('required')">
-                                            يلزم اداخال <strong>خدمة المجتمع وتنمية البيئة </strong>
+                                        <mat-error *ngIf="this.AddChallengesAndDifficultiesForm.controls['challenges'].hasError('required')">
+                                            يلزم اداخال <strong>التحديات </strong>
+                                        </mat-error>
+                                      </mat-form-field>
+                                </div>
+                             
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label class="mat-label-right"> الصعوبات</mat-label>
+                                        <textarea matInput placeholder="من فضلك ادخل الصعوبات" id="difficulties" formControlName="difficulties" required type="text" [errorStateMatcher]="matcher">
+                                        </textarea>
+                                        <mat-error *ngIf="this.AddChallengesAndDifficultiesForm.controls['difficulties'].hasError('required')">
+                                            يلزم اداخال <strong>الصعوبات</strong>
                                         </mat-error>
                                       </mat-form-field>
                                 </div>
                                 <div class="col-md-12">
                                     <mat-form-field class="example-full-width">
-                                        <mat-label class="mat-label-right"> الروابط</mat-label>
-                                        <textarea matInput placeholder="من فضلك ادخل الروابط" id="description" formControlName="description" required type="text" [errorStateMatcher]="matcher">
+                                        <mat-label class="mat-label-right"> الحلول </mat-label>
+                                        <textarea matInput placeholder="من فضلك ادخل الحلول " id="solutions" formControlName="solutions" required type="text" [errorStateMatcher]="matcher">
                                         </textarea>
-                                        <mat-error *ngIf="this.AddEnviroForm.controls['description'].hasError('required')">
-                                            يلزم اداخال <strong>الروابط</strong>
+                                        <mat-error *ngIf="this.AddChallengesAndDifficultiesForm.controls['solutions'].hasError('required')">
+                                            يلزم اداخال <strong>الحلول </strong>
+                                        </mat-error>
+                                      </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label class="mat-label-right"> كيفية تطبيقها </mat-label>
+                                        <textarea matInput placeholder="من فضلك ادخل كيفية تطبيقها " id="apply" formControlName="apply" required type="text" [errorStateMatcher]="matcher">
+                                        </textarea>
+                                        <mat-error *ngIf="this.AddChallengesAndDifficultiesForm.controls['apply'].hasError('required')">
+                                            يلزم اداخال <strong>كيفية تطبيقها </strong>
                                         </mat-error>
                                       </mat-form-field>
                                 </div>
                              </div>
                                 <br>
                              <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="background:linear-gradient(60deg, #002361, #0A9442)!important; "
-                             (click)="saveData()" type="submit" [disabled]="!AddEnviroForm.valid" >حفـــــظ البيانات</button>
+                             (click)="saveData()" type="submit" [disabled]="!AddChallengesAndDifficultiesForm.valid" >حفـــــظ البيانات</button>
                              <button mat-raised-button class="warn" (click)="Cancel()">إلغاء</button>
                             <div class="clearfix"></div>
                         </form>

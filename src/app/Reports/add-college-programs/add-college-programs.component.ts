@@ -26,6 +26,7 @@ export class AddCollegeProgramsComponent implements OnInit {
   IsFormValid = true;
   isSubmitted = false;
   _Program: string;
+  renewCollegeDate: string;
   _CollegeID: string;
   Program: ICPrograms;
   College: ICollege;
@@ -36,16 +37,19 @@ export class AddCollegeProgramsComponent implements OnInit {
       if (data == null) {
         this.Program = null;
         this._Program = '';
+        this.renewCollegeDate = '';
         this._CollegeID = '';
       } else
       {
         this.Program = data;
         this._Program = data.programName;
+        this.renewCollegeDate = data.renewCollegeDate;
         this._CollegeID = data.collegeID;
       }
 
       this.AddCProgramsForm = fb.group({
         CProgramName: [this._Program, Validators.required],
+        renewCollegeDate: [this.renewCollegeDate, Validators.required],
         College: [this._CollegeID, Validators.required ]
       })
      }
@@ -67,7 +71,7 @@ export class AddCollegeProgramsComponent implements OnInit {
        LoadCollegeData() {
         this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
-          console.log(this.College);
+          // console.log(this.College);
        });
        
       }
@@ -78,6 +82,7 @@ export class AddCollegeProgramsComponent implements OnInit {
          if (this.Program == null) {
              let NewProgram = {
               programName : this.AddCProgramsForm.get('CProgramName').value,
+              renewCollegeDate : this.AddCProgramsForm.get('renewCollegeDate').value,
               collegeID: this.AddCProgramsForm.controls['College'].value,
              };
              this.CollegeBasicDataService.CreateProgram(NewProgram)
@@ -92,6 +97,7 @@ export class AddCollegeProgramsComponent implements OnInit {
           let NewProgram = {
             programID : this.Program.programID,
             programName : this.AddCProgramsForm.get('CProgramName').value,
+            renewCollegeDate : this.AddCProgramsForm.get('renewCollegeDate').value,
             collegeID : this.AddCProgramsForm.get('College').value
           };
 
