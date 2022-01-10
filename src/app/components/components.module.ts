@@ -13,7 +13,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CommonModule,
     RouterModule,
     NgHttpLoaderModule.forRoot(),
-    NgxSpinnerModule  
+    NgxSpinnerModule
 
 
   ],

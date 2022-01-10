@@ -425,7 +425,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewAdvisor()"> إضافـــــــة</button>
+                          <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewAdvisor()"> إضافـــــــة</button> -->
       
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" >6- موقف الأرشاد الأكاديمي</h4>
                         </div>
@@ -585,7 +585,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewIStudyPlan()"> إضافـــــــة</button>
+                          <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewIStudyPlan()"> إضافـــــــة</button> -->
       
                             <h4 class="card-title" style="text-align: right; font-weight: bold;" >10-  خطة الدراسة في الفصل الدراسي الصيفي لدعم الطلاب المتعثرين والسنوات البينية </h4>
                         </div>
@@ -627,7 +627,7 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header card-header-danger">
-                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" > إضافـــــــة</button>
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewIIElectronicResourcesDTOs()"> إضافـــــــة</button>
                       
                                             <h4 class="card-title" style="text-align: right; font-weight: bold;" > 11- الموقف من استخدام مصادر المعرفة الألكترونية</h4>
                                         </div>
@@ -686,14 +686,14 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    {{IElectronicResourcesDTO.programName.others}}
+                                                                    {{IElectronicResourcesDTO.others}}
                                                                 </td>
     
                                                                 <td style="text-align: center !important;">
-                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;">
+                                                                <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditIElectronicResourcesData(IElectronicResourcesDTO)">
                                                                     <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>
                                                                   </button>
-                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" >
+                                                                <button mat-icon-button matTooltip="حذف" class="iconbutton" color="warn"  style="align-items: center;" (click)="onDeleteIElectronicResourcesDTO(IElectronicResourcesDTO.electronicResourcesID)">
                                                                     <mat-icon aria-label="Delete" style="align-items: center;">delete</mat-icon>
                                                                   </button>
                                                             </td>    

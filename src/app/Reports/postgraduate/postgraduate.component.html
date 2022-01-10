@@ -24,9 +24,9 @@
                                     </tr>
                                     <tr style="font-weight: bold; text-align: center;">
                                         <th>ماجستير</th>
-                                        <th>دكتوراة</th>
+                                        <th>دكتوراه</th>
                                         <th>ماجستير</th>
-                                        <th>دكتوراة</th>
+                                        <th>دكتوراه</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -168,7 +168,7 @@
                         <div class="card-header card-header-danger">
                           <button mat-raised-button type="submit" class="btn btn-danger pull-left" style="background: white !important; color: black !important; font-weight: bold;" (click)="AddNewInActivePorgramProfessionalDiploma()"> إضافـــــــة</button>
       
-                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 3- برامج لم تتقدم حتى الأن مع ذكر الأسباب</h4>
+                            <h4 class="card-title" style="text-align: right; font-weight: bold;" > 3- برامج مقترحة لم تتقدم حتى الأن مع ذكر الأسباب</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -222,6 +222,7 @@
                                             <th scope="col" style="font-weight: bold; text-align: center;">م</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;">اسم البرنامج</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;">اسم الدبلومة المهنية</th>
+                                            <th scope="col" style="font-weight: bold; text-align: center;">اسم الشريك الدولى</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;">الإجراء </th>
                                           
                                         </tr>
@@ -231,6 +232,7 @@
                                                 <th scope="row" >{{InActivePorgramProfessionalDiploma2DTO.autoID}}</th>
                                                 <td>{{InActivePorgramProfessionalDiploma2DTO.programName}}</td>
                                                 <td>{{InActivePorgramProfessionalDiploma2DTO.name}}</td>
+                                                <td></td>
                                                 <td style="text-align: center !important;">
                                                     <button mat-icon-button matTooltip="تعديل" class="iconbutton" color="primary"  style="align-items: center;" (click)="EditInActivePorgramProfessionalDiploma2Data(InActivePorgramProfessionalDiploma2DTO)">
                                                         <mat-icon aria-label="Edit" style="align-items: center;">edit</mat-icon>

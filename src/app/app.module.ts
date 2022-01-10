@@ -127,7 +127,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

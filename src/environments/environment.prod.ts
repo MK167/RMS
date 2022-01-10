@@ -1,6 +1,5 @@
 export const environment = {
   production: true,
-  // baseUrl: 'https://localhost:44316/api/'
+  // baseUrl: 'https://loscalhost:44316/api/'
   baseUrl: '/RMSAPI/api/'
-
 };

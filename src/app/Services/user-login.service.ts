@@ -16,7 +16,7 @@ export class UserLoginService {
 
 //Get All
   GetAllUser() : Observable<any> { 
-    return this.httpClient.get(this.baseUrl + this.apiUrlTable+ "/GetAllUser")
+    return this.httpClient.get(this.baseUrl + this.apiUrlTable + "/GetAllUser")
     .pipe(
       catchError(this.handleError)
     );
@@ -24,7 +24,7 @@ export class UserLoginService {
 
   //Get UserData
   GetUserData(username: any, password: any) : Observable<any> { 
-    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable+ "/GetUserData"}/${username}/${password}`)
+    return this.httpClient.get(`${this.baseUrl + this.apiUrlTable + "/GetUserData"}/${username}/${password}`)
     .pipe(
       catchError(this.handleError)
     );

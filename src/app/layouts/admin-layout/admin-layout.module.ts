@@ -114,6 +114,7 @@ import { AddAcademicsProgram9Component } from 'app/Reports/add-academics-program
 import { AddCollegeDataComponent } from 'app/Reports/add-college-data/add-college-data.component';
 import { AddEnvironmentalAndCommunityServiceComponent } from 'app/Reports/add-environmental-and-community-service/add-environmental-and-community-service.component';
 import { AddHumanResorceAcademiicStructureComponent } from 'app/Reports/add-human-resorce-academiic-structure/add-human-resorce-academiic-structure.component';
+// tslint:disable-next-line: max-line-length
 import { AddHumanResorceFacultyAdminComponent } from 'app/Reports/add-human-resorce-faculty-admin/add-human-resorce-faculty-admin.component';
 import { AddHumanResorceFacultyAndSupportStaffComponent } from 'app/Reports/add-human-resorce-faculty-and-support-staff/add-human-resorce-faculty-and-support-staff.component';
 import { AddHumanResorceFacultyAndSupportStaff2Component } from 'app/Reports/add-human-resorce-faculty-and-support-staff2/add-human-resorce-faculty-and-support-staff2.component';
@@ -134,6 +135,7 @@ import { AddStudentsOfProgramsComponent } from 'app/Reports/add-students-of-prog
 import { AddAcademicsProgram15Component } from 'app/Reports/add-academics-program15/add-academics-program15.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ChallengesAndDifficultiesComponent } from 'app/Reports/challenges-and-difficulties/challenges-and-difficulties.component';
 
 @NgModule({
   imports: [
@@ -198,7 +200,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     PortalModule,
     ScrollingModule,
     NgHttpLoaderModule.forRoot(),
-    NgxSpinnerModule  
+    NgxSpinnerModule
 
     ],
   declarations: [
@@ -241,7 +243,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     UserAttendComponent,
     UserImagesComponent,
     UserTypeComponent,
-    
+
     CollegeDataComponent,
     MajorsOfCollegeComponent,
     AcademicProgramComponent,
@@ -284,7 +286,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AddPostGraduatedPublicationsComponent,
     AddEnvironmentalAndCommunityServiceComponent,
     AddCollegeProgramsComponent,
-    AddAcademicsProgram15Component
+    AddAcademicsProgram15Component,
+    ChallengesAndDifficultiesComponent
   ]
 })
 

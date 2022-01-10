@@ -162,9 +162,9 @@
                                                         <tr>
                                                             <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">م</th>
                                                             <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">القسم العلمى</th>
-                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="4" >أستاذ</th>
-                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="4" >أستاذ مساعد</th>
-                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="4" >مدرس </th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="5" >أستاذ</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="5" >أستاذ مساعد</th>
+                                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="5" >مدرس </th>
                                                             <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">إجمالى المعينين </th>
                                                             <th scope="col" style="font-weight: bold; text-align: center;"rowspan="2">القائمين بإجازة </th>
                                                             <th scope="col" style="font-weight: bold; text-align: center;"rowspan="2">إجمالى القائمين على رأس العمل</th>
@@ -175,15 +175,18 @@
                                                         <tr style="font-weight: bold; text-align: center;">
                                                             <th>معين</th>
                                                             <th>معار</th>
-                                                            <th>منتدب</th>
+                                                            <th> منتدب بيوم </th>
+                                                            <th> منتدب بيومين </th>
                                                             <th>إجمالى</th>
                                                             <th>معين</th>
                                                             <th>معار</th>
-                                                            <th>منتدب</th>
+                                                            <th> منتدب بيوم </th>
+                                                            <th> منتدب بيومين </th>
                                                             <th>إجمالى</th>
                                                             <th>معين</th>
                                                             <th>معار</th>
-                                                            <th>منتدب</th>
+                                                            <th> منتدب بيوم </th>
+                                                            <th> منتدب بيومين </th>
                                                             <th>إجمالى</th>
                                                         </tr>
                                                          </thead>
@@ -195,10 +198,13 @@
                                                             <td>{{HR_AcademicStaffAll.numberOfProf}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfProf_Loaned}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfProfDelegated}}</td>
+                                                            <td></td>
+                                                            <td></td>
                                                             <td>{{HR_AcademicStaffAll.sumOfPro}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfAss_Prof}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfAss_Prof_Loaned}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfAss_Prof_Delegated}}</td>
+                                                            <td></td>
                                                             <td>{{HR_AcademicStaffAll.sumOfAss_Pro}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfTeasher}}</td>
                                                             <td>{{HR_AcademicStaffAll.numberOfTeasher_Loaned}}</td>
@@ -247,8 +253,8 @@
                                         <tr>
                                             <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">م</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;" rowspan="2">القسم العلمى</th>
-                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="3" >مدرس مساعد</th>
-                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="3" >معيد</th>
+                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="4" >مدرس مساعد</th>
+                                            <th scope="colgroup" style="font-weight: bold; text-align: center;" colspan="4" >معيد</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;"rowspan="2">القائمين بإجازة دراسية</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;"rowspan="2">القائمين بإجازة رعاية طفل</th>
                                             <th scope="col" style="font-weight: bold; text-align: center;"rowspan="2">إجمالى المعينين على رأس العمل</th>
@@ -258,10 +264,12 @@
                                         </tr>
                                         <tr style="font-weight: bold; text-align: center;">
                                             <th>معين</th>
-                                            <th>منتدب</th>
+                                            <th> منتدب بيوم </th>
+                                            <th> منتدب بيومين </th>
                                             <th>إجمالى</th>
                                             <th>معين</th>
-                                            <th>منتدب</th>
+                                            <th> منتدب بيوم </th>
+                                            <th> منتدب بيومين </th>
                                             <th>إجمالى</th>
                                         </tr>
                                          </thead>
@@ -271,9 +279,11 @@
                                             <td>{{HR_AcademicStaff.majorName}}</td>
                                             <td>{{HR_AcademicStaff.numberOfAss_Prof}}</td>
                                             <td>{{HR_AcademicStaff.numberOfAss_Prof_Delegated}}</td>
+                                            <td></td>
                                             <td>{{HR_AcademicStaff.sumOfAss_Pro}}</td>
                                             <td>{{HR_AcademicStaff.numberOfTeasher}}</td>
                                             <td>{{HR_AcademicStaff.numberOfTeasher_Delegated}}</td>
+                                            <td></td>
                                             <td>{{HR_AcademicStaff.sumOfTeashers}}</td>
                                             <td>{{HR_AcademicStaff.totalOnVacation}}</td>
                                             <td>{{HR_AcademicStaff.totalOnChildCareVacation}}</td>

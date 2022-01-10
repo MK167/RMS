@@ -98,7 +98,7 @@ export class AcademicProgramComponent implements OnInit {
         element.autoID = count;
       });
       this.IAcademicsStructureDTO = data; 
-      console.log(data);
+      // //console.log(data);
 
     });
 
@@ -160,7 +160,7 @@ export class AcademicProgramComponent implements OnInit {
         element.autoID = count;
       });
       this.IAccreditationRequirementsDTO = data; 
-      console.log(data);
+      // //console.log(data);
 
     });
 
@@ -222,7 +222,7 @@ LoadIAdvisorData() {
       element.autoID = count;
     });
     this.IAdvisorDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -284,7 +284,7 @@ LoadIStudentsNumberData() {
       element.autoID = count;
     });
     this.IStudentsNumberDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -346,7 +346,7 @@ LoadICorrectiveActionData() {
       element.autoID = count;
     });
     this.ICorrectiveActionDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -408,7 +408,7 @@ LoadICo_opData() {
       element.autoID = count;
     });
     this.ICo_opDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -470,7 +470,7 @@ LoadInternationalAccreditationData() {
       element.autoID = count;
     });
     this.InternationalAccreditationDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -532,7 +532,7 @@ LoadIStudentTransferData() {
       element.autoID = count;
     });
     this.IStudentTransferDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -594,7 +594,7 @@ LoadINumberOfCoursesaData() {
       element.autoID = count;
     });
     this.INumberOfCoursesDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -656,7 +656,7 @@ LoadICoursesCommitmentData() {
       element.autoID = count;
     });
     this.ICoursesCommitmentDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -718,7 +718,7 @@ LoadIStudyPlanData() {
       element.autoID = count;
     });
     this.IStudyPlanDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -780,7 +780,7 @@ LoadIElectronicResourcesDTOsData() {
       element.autoID = count;
     });
     this.IElectronicResourcesDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -841,7 +841,7 @@ LoadIElectronicResourcesItemsData() {
       element.autoID = count;
     });
     this.IElectronicResourcesItemDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -859,7 +859,7 @@ LoadIMoodelDTOsData() {
       element.autoID = count;
     });
     this.IMoodleDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -921,7 +921,7 @@ LoadTeachingData() {
       element.autoID = count;
     });
     this.ITeachingAndLearningMethodsDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -983,7 +983,7 @@ LoadFieldTData() {
       element.autoID = count;
     });
     this.IFieldTrainingDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 

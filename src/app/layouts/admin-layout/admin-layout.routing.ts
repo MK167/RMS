@@ -42,6 +42,7 @@ import { HumanResourcesComponent } from 'app/Reports/human-resources/human-resou
 import { StudentsActivitiesComponent } from 'app/Reports/students-activities/students-activities.component';
 import { PostgraduateComponent } from 'app/Reports/postgraduate/postgraduate.component';
 import { EnvironmentalandCommunityServiceComponent } from 'app/Reports/environmentaland-community-service/environmentaland-community-service.component';
+import { ChallengesAndDifficultiesComponent } from '../../Reports/challenges-and-difficulties/challenges-and-difficulties.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -86,62 +87,63 @@ export const AdminLayoutRoutes: Routes = [
     //         component: UpgradeComponent
     //     }]
     // }
-    { path: 'dashboard',           component: DashboardComponent ,canActivate:[AuthguardGuard] },
-    { path: 'user-profile',        component: UserProfileComponent ,canActivate:[AuthguardGuard]},
-    { path: 'table-list',          component: TableListComponent ,canActivate:[AuthguardGuard]},
-    { path: 'add-new-user',        component: TypographyComponent,canActivate:[AuthguardGuard] },
+    { path: 'dashboard',           component: DashboardComponent , canActivate: [AuthguardGuard] },
+    { path: 'user-profile',        component: UserProfileComponent , canActivate: [AuthguardGuard]},
+    { path: 'table-list',          component: TableListComponent , canActivate: [AuthguardGuard]},
+    { path: 'add-new-user',        component: TypographyComponent, canActivate: [AuthguardGuard] },
 
-    { path: 'Event-attendance',    component: EventAttendanceComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Event-attendance',component: AddEventAttendanceComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Event-attendance',    component: EventAttendanceComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Event-attendance', component: AddEventAttendanceComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Event-category',    component: EventCategoryComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Event-category',component: AddEventCategoryComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Event-category',    component: EventCategoryComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Event-category', component: AddEventCategoryComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Event-details',    component: EventDetailsComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Event-details',component: AddEventDetailsComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Event-details',    component: EventDetailsComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Event-details', component: AddEventDetailsComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Event-status',    component: EventStatusComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Event-status',component: AddEventStatusComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Event-status',    component: EventStatusComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Event-status', component: AddEventStatusComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Event-venue',         component: EventVenueComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Event-attendance',component: AddEventVenueComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Event-venue',         component: EventVenueComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Event-attendance', component: AddEventVenueComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Gender',    component: GenderComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Gender',component: AddGenderComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Gender',    component: GenderComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Gender', component: AddGenderComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Job',    component: JobComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Job',component: AddJobComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Job',    component: JobComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Job', component: AddJobComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Nationality',    component: NationalityComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Nationality',component: AddNationalityComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Nationality',    component: NationalityComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Nationality', component: AddNationalityComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'Organizer',    component: OrganizerComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-Organizer',component: AddOrganizerComponent ,canActivate:[AuthguardGuard]},
+    { path: 'Organizer',    component: OrganizerComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-Organizer', component: AddOrganizerComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'University',    component: UniversityComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-University',component: AddUniversityComponent ,canActivate:[AuthguardGuard]},
+    { path: 'University',    component: UniversityComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-University', component: AddUniversityComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'User-Admin',    component: UserAdminComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-User-Admin',component: AddUserAdminComponent ,canActivate:[AuthguardGuard]},
+    { path: 'User-Admin',    component: UserAdminComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-User-Admin', component: AddUserAdminComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'User-Attend',    component: UserAttendComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-User-Attend',component: AddUserAttendComponent ,canActivate:[AuthguardGuard]},
+    { path: 'User-Attend',    component: UserAttendComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-User-Attend', component: AddUserAttendComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'User-Images',    component: UserImagesComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-User-Images',component: AddUserImagesComponent ,canActivate:[AuthguardGuard]},
+    { path: 'User-Images',    component: UserImagesComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-User-Images', component: AddUserImagesComponent , canActivate: [AuthguardGuard]},
 
-    { path: 'User-Type',    component: UserTypeComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Add-User-Type',component: AddUserTypeComponent ,canActivate:[AuthguardGuard]},
+    { path: 'User-Type',    component: UserTypeComponent , canActivate: [AuthguardGuard]},
+    { path: 'Add-User-Type', component: AddUserTypeComponent , canActivate: [AuthguardGuard]},
 
 
 
-    //Reports
-    { path: 'CollegeData',    component: CollegeDataComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Majors',component: MajorsOfCollegeComponent ,canActivate:[AuthguardGuard]},
-    { path: 'AcademicProgram',    component: AcademicProgramComponent ,canActivate:[AuthguardGuard]},
-    { path: 'HumanResources',component: HumanResourcesComponent ,canActivate:[AuthguardGuard]},
-    { path: 'StudentsActivities',    component: StudentsActivitiesComponent ,canActivate:[AuthguardGuard]},
-    { path: 'Postgraduate',component: PostgraduateComponent ,canActivate:[AuthguardGuard]},
-    { path: 'EnvironmentalandCommunityService',component: EnvironmentalandCommunityServiceComponent ,canActivate:[AuthguardGuard]},
+    // Reports
+    { path: 'CollegeData',    component: CollegeDataComponent , canActivate: [AuthguardGuard]},
+    { path: 'Majors', component: MajorsOfCollegeComponent , canActivate: [AuthguardGuard]},
+    { path: 'AcademicProgram',    component: AcademicProgramComponent , canActivate: [AuthguardGuard]},
+    { path: 'HumanResources', component: HumanResourcesComponent , canActivate: [AuthguardGuard]},
+    { path: 'StudentsActivities',    component: StudentsActivitiesComponent , canActivate: [AuthguardGuard]},
+    { path: 'Postgraduate', component: PostgraduateComponent , canActivate: [AuthguardGuard]},
+    { path: 'EnvironmentalandCommunityService', component: EnvironmentalandCommunityServiceComponent , canActivate: [AuthguardGuard]},
+    { path: 'Challenges-and-difficulties', component: ChallengesAndDifficultiesComponent , canActivate: [AuthguardGuard]},
 
 ];

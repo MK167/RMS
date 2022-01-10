@@ -52,7 +52,7 @@ export class PostgraduateComponent implements OnInit {
         element.autoID = count;
       });
       this.IActiveProgram = data;
-      console.log(data);
+      //console.log(data);
 
     });
 
@@ -114,7 +114,7 @@ export class PostgraduateComponent implements OnInit {
         element.autoID = count;
       });
       this.InActivePorgramProfessionalDiplomaDTO = data;
-      console.log(data);
+      //console.log(data);
 
     });
 
@@ -176,7 +176,7 @@ export class PostgraduateComponent implements OnInit {
         element.autoID = count;
       });
       this.InActivePorgramProfessionalDiploma2DTO = data;
-      console.log(data);
+      //console.log(data);
 
     });
 
@@ -239,7 +239,7 @@ LoadIScientificResearch() {
       element.autoID = count;
     });
     this.IScientificResearchDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 
@@ -301,7 +301,7 @@ LoadISummitionProgramData() {
       element.autoID = count;
     });
     this.ISummitionProgramDTO = data;
-    console.log(data);
+    //console.log(data);
 
   });
 

@@ -41,6 +41,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/StudentsActivities'   ,    title: 'الأنشطة الطلابية',  icon:'person', class: '' },
     { path: '/Postgraduate'   ,    title: 'الدراسات العليا',  icon:'manage_accounts', class: '' },
     { path: '/EnvironmentalandCommunityService'   ,    title: 'خدمة المجتمع وتنمية البيئة',  icon:'warning', class: '' },
+    { path: '/Challenges-and-difficulties'   ,    title: 'التحديات والصعوبات',  icon:'work', class: '' },
 
 ];
 
@@ -66,6 +67,9 @@ if ($(window).width() > 991) {
   logout(){
     this.AuthService.isLoggedIn = false;
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('CollegeID');
+    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('CollegeID');
     this.router.navigate(['/auth']);
 }
 }

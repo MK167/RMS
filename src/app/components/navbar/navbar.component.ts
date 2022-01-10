@@ -126,6 +126,9 @@ export class NavbarComponent implements OnInit {
     logout(){
         this.AuthService.isLoggedIn = false;
         localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('CollegeID');
+        sessionStorage.removeItem('isLoggedIn');
+        sessionStorage.removeItem('CollegeID');
         this.router.navigate(['/auth']);
     }
 }

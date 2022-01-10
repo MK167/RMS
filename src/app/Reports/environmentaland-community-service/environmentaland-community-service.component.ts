@@ -36,7 +36,7 @@ export class EnvironmentalandCommunityServiceComponent implements OnInit {
         element.autoID = count;
       });
       this.IEnviroDTO = data;
-      console.log(data);
+      //console.log(data);
   
     });
   

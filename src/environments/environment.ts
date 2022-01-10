@@ -6,7 +6,9 @@
 export const environment = {
   production: false,
 
-  //To hit API on localhost use localhost link 
-  //If you used on production change the baseUrl in environment.prod.ts
-  baseUrl: 'https://localhost:44316/api/'
+  // To hit API on localhost use localhost link
+  // If you used on production change the baseUrl in environment.prod.ts
+  // baseUrl: 'https://localhost:44316/api/'
+  baseUrl: '/RMSAPI/api/'
+
 };
