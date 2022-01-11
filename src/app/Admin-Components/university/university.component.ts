@@ -105,7 +105,7 @@ export class UniversityComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadUniversities();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

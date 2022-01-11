@@ -105,7 +105,7 @@ export class EventVenueComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadEventVenue();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

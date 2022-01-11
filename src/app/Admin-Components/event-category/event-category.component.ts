@@ -105,7 +105,7 @@ export class EventCategoryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadEventCategory();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

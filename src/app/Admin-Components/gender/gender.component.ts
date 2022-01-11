@@ -105,7 +105,7 @@ export class GenderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadGenders();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

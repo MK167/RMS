@@ -105,7 +105,7 @@ export class OrganizerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadOrganizers();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

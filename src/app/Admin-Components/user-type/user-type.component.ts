@@ -104,7 +104,7 @@ export class UserTypeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadTypes();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

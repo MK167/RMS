@@ -104,7 +104,7 @@ export class UserImagesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadImages();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

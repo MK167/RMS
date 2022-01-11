@@ -137,6 +137,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ChallengesAndDifficultiesComponent } from 'app/Reports/challenges-and-difficulties/challenges-and-difficulties.component';
 import { AddChallengesAndDifficultiesComponent } from 'app/Reports/add-challenges-and-difficulties/add-challenges-and-difficulties.component';
+import { AddSDComponent } from 'app/Reports/add-sd/add-sd.component';
 
 @NgModule({
   imports: [
@@ -289,7 +290,8 @@ import { AddChallengesAndDifficultiesComponent } from 'app/Reports/add-challenge
     AddCollegeProgramsComponent,
     AddAcademicsProgram15Component,
     AddChallengesAndDifficultiesComponent,
-    ChallengesAndDifficultiesComponent
+    ChallengesAndDifficultiesComponent,
+    AddSDComponent
   ]
 })
 

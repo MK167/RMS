@@ -5,4 +5,5 @@ collegeID: string;
 collegeName: string;
 numberOfResearches: number;
 impactFactorJournal: string;
+filePath: string;
 }

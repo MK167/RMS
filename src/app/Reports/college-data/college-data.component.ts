@@ -1,3 +1,6 @@
+import { AddSDComponent } from './../add-sd/add-sd.component';
+import { AcademicStructureService } from './../../Services/RMS-Services/academic-structure.service';
+import { IScientificDegreesDTO } from './../../Models/RMS-Models/IScientificDegreesDTO';
 import { AddCollegeProgramsComponent } from './../add-college-programs/add-college-programs.component';
 import { AddMajorsOfCollegeComponent } from './../add-majors-of-college/add-majors-of-college.component';
 import { CollegeBasicDataService } from './../../Services/RMS-Services/college-basic-data.service';
@@ -27,20 +30,24 @@ export class CollegeDataComponent implements OnInit {
   ICollege :   ICollege[] = [];
   ICMajors :   ICMajors[] = [];
   ICPrograms : ICPrograms[] = [];
+  IScientificDegreesDTO : IScientificDegreesDTO[] = [];
 
   //Define Display Coulmns Headers in Angular Material 
   displayedColumns: string[] = ['CollegeName','CDate', 'RepublicanDecision','CNumberOfMajors','CNumberOfPrograms', 'CAcademicDate', 'CTimeAcademic', 'CStudyLang','Cactions'];
   displayedColumnss: string[] = ['MajorID', 'MajorName','CollegeOfMajor','Mactions']
   displayedColumnsss: string[] = ['ProgramID', 'ProgramName','renewCollegeDate','CollegeName','Pactions']
+  displayedColumnssss: string[] = ['scientificDegreesID', 'scientificDegreesName','collegeName','Sactions']
 
   //Define DataSource 
   dataSource = new MatTableDataSource<ICollege>(this.ICollege);
   dataSourceMajors = new MatTableDataSource<ICMajors>(this.ICMajors);
   dataSourcePrograms = new MatTableDataSource<ICPrograms>(this.ICPrograms);
+  dataSourceScientificDegrees = new MatTableDataSource<IScientificDegreesDTO>(this.IScientificDegreesDTO);
   
   // Constructor 
   constructor(
     private CollegeData: CollegeBasicDataService,
+    private AcademicStructureService: AcademicStructureService,
     private notificationsService: NotificationsService,
     private dialog: MatDialog,
     private DialogService : DialogService
@@ -104,7 +111,7 @@ export class CollegeDataComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         this.LoadCollegeData();
-        this.notificationsService.success('Added Data successfully !');
+        this.notificationsService.success('تم اضافة البيانات بنجاح');
 
       });
 
@@ -165,7 +172,7 @@ export class CollegeDataComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         this.LoadMajorsData();
-        this.notificationsService.success('Added Data successfully !');
+        this.notificationsService.success('تم اضافة البيانات بنجاح');
 
       });
 
@@ -229,6 +236,63 @@ export class CollegeDataComponent implements OnInit {
         this.notificationsService.success('تم إضافة البيانات بنجاح');
 
       });
+
+    }
+
+    //////////////////// CRUD Operations About SD \\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    LoadSDData(){
+      this.AcademicStructureService.GetAllScientificDegrees(sessionStorage.getItem('CollegeID')).subscribe(data => {
+        this.IScientificDegreesDTO = data; 
+      });
+
+    }
+
+    onDeleteSD(id){
+      this.DialogService.OpenConfirmationDialog('هل انت متأكد من حذف هذا العنصر؟')
+      .afterClosed().subscribe(res =>{
+        if(res){
+          this.AcademicStructureService.DeleteScientificDegrees(id).subscribe(res => {
+            this.IScientificDegreesDTO = this.IScientificDegreesDTO.filter(item => item.scientificDegreesID !== id);
+            // console.log('College deleted successfully!');
+          });
+          this.notificationsService.warn('تم الحذف بنجاح');
+        }
+      });
+    }
+
+    EditSDData(obj){
+      const dialogRef = this.dialog.open(AddSDComponent, {
+        disableClose : true,
+        autoFocus : true,
+        width : '600px',
+        height : '450px',
+        position: { top: "90px" },
+        data : obj
+      });
+      dialogRef.afterClosed().subscribe(result => {
+      this.LoadSDData();
+      this.notificationsService.success('تم التحديث بنجاح');
+      });
+
+    }
+
+    AddNewSD() {
+      const dialogRef = this.dialog.open(AddSDComponent, {
+        disableClose : true,
+        autoFocus : true,
+        width : '600px',
+        height : '450px',
+        position: { top: "90px" },
+
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.LoadSDData();
+        this.notificationsService.success('تم اضافة البيانات بنجاح');
+
+      });
+
 
     }
 

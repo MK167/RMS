@@ -3,4 +3,5 @@ scientificDegreesID: string;
 scientificDegreesName: string;
 collegeID: string;
 collegeName: string;
+autoID: number;
 }

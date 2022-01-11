@@ -109,7 +109,7 @@ export class JobComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadJobs();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

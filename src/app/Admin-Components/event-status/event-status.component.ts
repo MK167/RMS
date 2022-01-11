@@ -106,7 +106,7 @@ export class EventStatusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadEventStatus();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 

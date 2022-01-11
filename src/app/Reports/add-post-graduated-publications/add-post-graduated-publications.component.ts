@@ -34,6 +34,7 @@ export class AddPostGraduatedPublicationsComponent implements OnInit {
   programID: string;
   numberOfResearches: number;
   impactFactorJournal: string;
+  filePath: string; 
   //
   Program: ICPrograms;
   College: ICollege;
@@ -49,11 +50,13 @@ export class AddPostGraduatedPublicationsComponent implements OnInit {
         this.programID = '';
         this.impactFactorJournal = '';
         this.numberOfResearches = 0;
+        this.filePath = '';
       } else {
         this.IScientificResearchDTO = data;
         this.collegeID = data.collegeID;
         this.impactFactorJournal = data.impactFactorJournal;
         this.numberOfResearches = data.numberOfResearches;
+        this.filePath = data.filePath;
      
       }
 
@@ -62,7 +65,7 @@ export class AddPostGraduatedPublicationsComponent implements OnInit {
         // Program: [this.programID, Validators.required ],
         impactFactorJournal: [this.impactFactorJournal, Validators.required ],
         numberOfResearches: [this.numberOfResearches, Validators.required ],
-     
+        filePath: [this.filePath, Validators.required]
       })
      }
      get f()
@@ -83,13 +86,13 @@ export class AddPostGraduatedPublicationsComponent implements OnInit {
        LoadCollegeData() {
         this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
-          console.log(this.College);
+          // console.log(this.College);
        });
       }
        LoadProgramData() {
         this.CollegeBasicDataService.GetAllProgram(sessionStorage.getItem('CollegeID')).subscribe((data: ICPrograms) => {
           this.Program = data;
-          console.log(this.Program);
+          // console.log(this.Program);
        });
       }
        saveData(): void {
@@ -99,7 +102,7 @@ export class AddPostGraduatedPublicationsComponent implements OnInit {
               // programID : this.AddSRForm.get('Program').value,
               impactFactorJournal : this.AddSRForm.get('impactFactorJournal').value,
               numberOfResearches : this.AddSRForm.get('numberOfResearches').value,
-             
+              filePath : this.AddSRForm.get('filePath').value,
              };
              this.PG.CreateScientificResearch(NewPGStructure)
                  .subscribe(
@@ -116,6 +119,8 @@ export class AddPostGraduatedPublicationsComponent implements OnInit {
             // programID : this.AddSRForm.get('Program').value,
             impactFactorJournal : this.AddSRForm.get('impactFactorJournal').value,
             numberOfResearches : this.AddSRForm.get('numberOfResearches').value,
+            filePath : this.AddSRForm.get('filePath').value,
+
           };
 
           console.log(NewPGStructure);

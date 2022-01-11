@@ -104,7 +104,7 @@ export class NationalityComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.LoadNationalities();
-      this.notificationsService.success('Added Data successfully !');
+      this.notificationsService.success('تم اضافة البيانات بنجاح');
 
     });
 
