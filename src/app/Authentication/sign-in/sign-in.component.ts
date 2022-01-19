@@ -52,7 +52,7 @@ export class SignInComponent implements OnInit {
       localStorage.setItem('isLoggedIn', 'true');
       sessionStorage.setItem('isLoggedIn', 'true');
       sessionStorage.setItem('CollegeID', this._Users['collegeID']);
-      console.log('Success');
+      // console.log('Success');
       this.router.navigate(['/dashboard']);
       this.SpinnerService.hide();
     } else {

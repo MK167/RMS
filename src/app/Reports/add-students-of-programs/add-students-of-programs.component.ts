@@ -132,7 +132,7 @@ export class AddStudentsOfProgramsComponent implements OnInit {
        LoadCollegeData() {
         this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
-          console.log(this.College);
+          //console.log(this.College);
        });
        
       }
@@ -142,12 +142,16 @@ export class AddStudentsOfProgramsComponent implements OnInit {
               collegeID: this.AddHRFormFive.controls['College'].value,
               cMajorsID : this.AddHRFormFive.get('ICMajors').value,
               numberOfAss_Prof:this.AddHRFormFive.get('numberOfAss_Prof').value,
+
               numberOfAss_Prof_DelegatedDayOne:this.AddHRFormFive.get('numberOfAss_Prof_DelegatedDayOne').value,  
-              numberOfAss_Prof_DelegatedDayTwo:this.AddHRFormFive.get('numberOfAss_Prof_DelegatedDayTwo').value,  
+              numberOfAss_Prof_DelegatedDayTwo:this.AddHRFormFive.get('numberOfAss_Prof_DelegatedDayTwo').value, 
+
               sumOfAss_Pro:this.AddHRFormFive.get('sumOfAss_Pro').value,
               numberOfTeasher:this.AddHRFormFive.get('numberOfTeasher').value,
+
               numberOfTeasher_DelegatedDayOne:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayOne').value,
               numberOfTeasher_DelegatedDayTwo:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayTwo').value,
+
               sumOfTeashers:this.AddHRFormFive.get('sumOfTeashers').value,
               totalOnVacation:this.AddHRFormFive.get('totalOnVacation').value,
               totalOnChildCareVacation:this.AddHRFormFive.get('totalOnChildCareVacation').value,
@@ -169,12 +173,16 @@ export class AddStudentsOfProgramsComponent implements OnInit {
             collegeID: this.AddHRFormFive.controls['College'].value,
             cMajorsID : this.AddHRFormFive.get('ICMajors').value,
             numberOfAss_Prof:this.AddHRFormFive.get('numberOfAss_Prof').value,
+
             numberOfAss_Prof_DelegatedDayOne:this.AddHRFormFive.get('numberOfAss_Prof_DelegatedDayOne').value,
             numberOfAss_Prof_DelegatedDayTwo:this.AddHRFormFive.get('numberOfAss_Prof_DelegatedDayTwo').value,
+
             sumOfAss_Pro:this.AddHRFormFive.get('sumOfAss_Pro').value,
             numberOfTeasher:this.AddHRFormFive.get('numberOfTeasher').value,
+
             numberOfTeasher_DelegatedDayOne:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayOne').value,
             numberOfTeasher_DelegatedDayTwo:this.AddHRFormFive.get('numberOfTeasher_DelegatedDayTwo').value,
+            
             sumOfTeashers:this.AddHRFormFive.get('sumOfTeashers').value,
             totalOnVacation:this.AddHRFormFive.get('totalOnVacation').value,
             totalOnChildCareVacation:this.AddHRFormFive.get('totalOnChildCareVacation').value,

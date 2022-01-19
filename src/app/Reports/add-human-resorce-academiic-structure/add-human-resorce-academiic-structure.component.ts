@@ -174,7 +174,7 @@ export class AddHumanResorceAcademiicStructureComponent implements OnInit {
        LoadCollegeData() {
         this.CollegeBasicDataService.GetAllCollege(sessionStorage.getItem('CollegeID')).subscribe((data: ICollege) => {
           this.College = data;
-          console.log(this.College);
+          //console.log(this.College);
        });
        
       }
