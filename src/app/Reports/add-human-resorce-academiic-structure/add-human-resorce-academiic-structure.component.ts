@@ -219,18 +219,24 @@ export class AddHumanResorceAcademiicStructureComponent implements OnInit {
             cMajorsID : this.AddHRFormFour.get('ICMajors').value,
             numberOfProf :this.AddHRFormFour.get('numberOfProf').value,
             numberOfProf_Loaned :this.AddHRFormFour.get('numberOfProf_Loaned').value,
+            
             numberOfProfDelegatedDayOne :this.AddHRFormFour.get('numberOfProfDelegatedDayOne').value,
             numberOfProfDelegatedDayTwo :this.AddHRFormFour.get('numberOfProfDelegatedDayTwo').value,
+
             sumOfPro :this.AddHRFormFour.get('sumOfPro').value,
             numberOfAss_Prof :this.AddHRFormFour.get('numberOfAss_Prof').value,
             numberOfAss_Prof_Loaned :this.AddHRFormFour.get('numberOfAss_Prof_Loaned').value,
+
             numberOfAss_Prof_DelegatedDayOne :this.AddHRFormFour.get('numberOfAss_Prof_DelegatedDayOne').value,
             numberOfAss_Prof_DelegatedDayTwo :this.AddHRFormFour.get('numberOfAss_Prof_DelegatedDayTwo').value,
+
             sumOfAss_Pro :this.AddHRFormFour.get('sumOfAss_Pro').value,
             numberOfTeasher :this.AddHRFormFour.get('numberOfTeasher').value,
             numberOfTeasher_Loaned :this.AddHRFormFour.get('numberOfTeasher_Loaned').value,
+
             numberOfTeasher_DelegatedDayOne :this.AddHRFormFour.get('numberOfTeasher_DelegatedDayOne').value,
             numberOfTeasher_DelegatedDayTwo :this.AddHRFormFour.get('numberOfTeasher_DelegatedDayTwo').value,
+            
             sumOfTeashers :this.AddHRFormFour.get('sumOfTeashers').value,
             totalOnJob :this.AddHRFormFour.get('totalOnJob').value,
             totalOnVacation :this.AddHRFormFour.get('totalOnVacation').value,

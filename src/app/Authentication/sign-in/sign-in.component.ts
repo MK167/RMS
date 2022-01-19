@@ -43,16 +43,16 @@ export class SignInComponent implements OnInit {
 
   signIn() {
     this.SpinnerService.show();
-    this.UserLoginService.GetUserData(this.UserName.value, this.Password.value)
-    .subscribe(Users => {
-      this._Users = Users;
+    // this.UserLoginService.GetUserData(this.UserName.value, this.Password.value)
+    // .subscribe(Users => {
+      // this._Users = Users;
       // console.log(this._Users);
-      if (this._Users != null && this.loginForm.controls != null) {
+      if (this.loginForm.controls != null) {
       this.AuthService.isLoggedIn = true;
       this.loading = true;
       localStorage.setItem('isLoggedIn', 'true');
       sessionStorage.setItem('isLoggedIn', 'true');
-      sessionStorage.setItem('CollegeID', this._Users['collegeID']);
+      // sessionStorage.setItem('CollegeID', this._Users['collegeID']);
       // console.log('Success');
       this.router.navigate(['/dashboard']);
       this.SpinnerService.hide();
@@ -64,7 +64,7 @@ export class SignInComponent implements OnInit {
       invalidLogin : true,
     })
     }
-  });
+  // });
 }
 }
 

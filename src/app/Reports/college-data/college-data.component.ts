@@ -243,9 +243,13 @@ export class CollegeDataComponent implements OnInit {
 
     LoadSDData(){
       this.AcademicStructureService.GetAllScientificDegrees(sessionStorage.getItem('CollegeID')).subscribe(data => {
+        var count = 0;
+        data.forEach(element => {
+          count+=1;
+          element.autoID = count;
+        });
         this.IScientificDegreesDTO = data; 
       });
-
     }
 
     onDeleteSD(id){
